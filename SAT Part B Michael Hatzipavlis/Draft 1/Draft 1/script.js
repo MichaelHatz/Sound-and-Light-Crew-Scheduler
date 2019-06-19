@@ -1,5 +1,10 @@
+/*var canvas = document.getElementById("canvas");
+context = canvas.getContext("2d");
+*/
 var passwordTXT = new XMLHttpRequest();
 console.log("Is the script connected");
+
+/*drawStuff();*/
 
 function CheckPassword() {
 
@@ -17,4 +22,26 @@ function CheckPassword() {
 	}
 }
 
+console.log("Change backgroundImage")
 
+
+/*function drawStuff() {
+	console.log("drawStuff");
+	context.beginPath();
+  	context.rect(300, 50, 800, 150);
+  	context.strokeStyle = "#E9C46A"
+  	context.lineWidth = 10;
+  	context.stroke();
+  	context.fillStyle = "#264653";
+  	context.fill();
+  	context.font = "30px Arial";
+  	context.fillStyle = "#E9C46A"
+  	context.fillText("Crew Scheduler Login", 550, 125);
+  	context.closePath();
+
+
+
+}
+
+
+*/

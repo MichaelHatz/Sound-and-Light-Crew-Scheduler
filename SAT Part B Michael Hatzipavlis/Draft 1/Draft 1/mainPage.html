@@ -26,9 +26,9 @@
   			function drawStuff() {
 
   				for (var i = 0; i < 9; i++) {
-  					console.log("Help");
   					context.font = "15px Arial";
-  					context.fillText("9:00", 500 + (100 * i), 650);
+            var time = 8+i;
+  					context.fillText(`${time}:00`, 500 + (100 * i), 650);
   				}
 
 
@@ -38,6 +38,7 @@
   					context.lineTo(500 + (100 * i),620);
   					context.strokeStyle = "gray";
   					context.stroke();
+            context.closePath();
   				}
 
   				context.strokeStyle = "black";

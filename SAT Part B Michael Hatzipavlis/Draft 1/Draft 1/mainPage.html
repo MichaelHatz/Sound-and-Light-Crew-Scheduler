@@ -5,8 +5,71 @@
 		<title>Sound and Light Crew Scheduling</title>
 	</head>
 	<body>
-		<div class="Logout">
-			<a href="index.html" class="button" type="button">Logout</a>
-		</div>
+
+		<canvas id="canvas" width="1500" height="1080"></canvas>
+
+		<script type="text/javascript">
+			var canvas = document.getElementById("canvas");
+			context = canvas.getContext("2d");
+
+			window.addEventListener('resize', resizeCanvas, false);
+			function resizeCanvas() {
+    			canvas.width = window.innerWidth;
+    			canvas.height = window.innerHeight;
+
+    			// Redraw everything after resizing the window
+    			drawStuff(); 
+  			}
+
+  			resizeCanvas();
+
+  			function drawStuff() {
+
+  				for (var i = 0; i < 9; i++) {
+  					console.log("Help");
+  					context.font = "15px Arial";
+  					context.fillText("9:00", 500 + (100 * i), 650);
+  				}
+
+
+  				for (var i = 0; i < 9; i++) {
+  					context.beginPath();
+  					context.moveTo(500 + (100 * i),20);
+  					context.lineTo(500 + (100 * i),620);
+  					context.strokeStyle = "gray";
+  					context.stroke();
+  				}
+
+  				context.strokeStyle = "black";
+  				context.strokeRect(400, 20, 1000, 600);
+
+  				
+
+  				//First event
+				context.beginPath();
+  				context.moveTo(400, 90);
+  				context.lineTo(1400, 90);
+  				context.stroke();
+
+  				context.fillStyle = "#FFBD33";
+				context.fillRect(500, 40, 800, 100);
+
+				//Second event
+				context.beginPath();
+  				context.moveTo(400, 210);
+  				context.lineTo(1400, 210);
+  				context.stroke();
+
+  				context.fillStyle = "#FFBD33";
+				context.fillRect(500, 160, 800, 100);
+
+  			}
+		</script>
+
+		<div class="hot-container">
+               <p>
+                  <a href="index.html" class="btn">Log Out</a>
+               </p>
+        </div>
 	</body>
 </html>

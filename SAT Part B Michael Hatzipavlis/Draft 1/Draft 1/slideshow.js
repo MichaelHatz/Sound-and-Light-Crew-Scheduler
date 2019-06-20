@@ -1,4 +1,4 @@
-var Image_slide = new Array("download.jpg", "picture.jpg", "SoundAndLightCrew.jpg");// image container
+var Image_slide = new Array("Image1.jpg", "Image2.jpg", "Image3.jpg", "Image4.jpg", "Image5.jpg");// image container
 var Img_Length  = Image_slide.length; // container length - 1
 var Img_current = 0
 

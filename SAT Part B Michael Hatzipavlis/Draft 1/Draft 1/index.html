@@ -2,11 +2,44 @@
 <html>
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<script src="script.js"></script>
-	<script src="slideshow.js"></script>
+	<!-- <script src="slideshow.js"></script> -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 	<head>
 		<title>Sound and Light Scheduling</title>
-
 	</head>
+
+	<script>
+		var Image_slide = new Array("Image1.jpg", "Image2.jpg", "Image3.jpg", "Image4.jpg", "Image5.jpg");// image container
+		var Img_Length  = Image_slide.length; // container length - 1
+		var Img_current = 0
+
+
+
+		$(document).ready(function(){
+			$("#LoginBtn").click(function() {
+				console.log("Button click function")
+				$("#LoginBtn").fadeOut();
+				$("#RegisterInput").fadeOut();
+				$("#paragrahStyle")
+				.delay(500)
+				    .queue(function (next) { 
+				    $("#paragrahStyle").css("padding-top", "15px");
+				    next(); 
+				});
+				$("#loginBox").delay(800).fadeIn();
+			});
+
+			setInterval(function() {
+				$("#parallax").fadeIn(500).css("background-image", "url(" + Image_slide[Img_current] + ")");
+				Img_current++
+				console.log("Set Interval working");
+
+			}, 5000);
+
+		});
+
+
+	</script>
 	<body>
       	
 
@@ -30,15 +63,53 @@
 				
 			<!-- <div class="LoginBox" style="height: 200px"> -->
 				<div class="hot-container">
-					<p style="padding-top: 200px">
-						<a href="login.html" class="btn">Login</a>
+					<p style="padding-top: 200px" id="paragrahStyle">
+						<a id="LoginBtn" class="btn">Login</a>
+						<div hidden class="LoginBox" id="loginBox">
+				           	<div class = "Login">
+				               <h2>Username:</h2>
+				               <input type="text" name="username" id="username" value="hello" autocomplete="off"></input>
+				            </div>
+
+							   <div class = "Password">
+				               <h2>Password:</h2>
+				               <input type="password" name="password" id="password" value="" autocomplete="off"></input>
+				            </div>
+
+				            <div class="hot-container">
+				               <p>
+				                  <a href="mainPage.html" class="btn">Submit</a>
+				               </p>
+				            </div>
+				            <div class="hot-container">
+				               <p>
+				                  <a href="index.html" class="btn">Return</a>
+				               </p>
+				            </div>
+			        	</div>
 					</p>
-					<p style="padding-bottom: 200px">
-						<a href="register.html" class="btn">Register</a>
+					<p>
+						<a href="register.html" class="btn" id="RegisterInput">Register</a>
 					</p>
+
+
+
 				</div>
+
+				
+
+			   
+            <!-- <div class="SubmitButton">
+                <button class="button "type="button" onclick="CheckPassword();">Submit</button>
+            </div> -->
+			  
+         </div>
+
+		</form>
 			</div>
 		</div>
+
+		<h2>ABOUT</h2>
 
 		<div class="aboutPage">
 			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod

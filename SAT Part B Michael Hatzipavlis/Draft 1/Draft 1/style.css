@@ -21,13 +21,21 @@ h1 {
 }
 
 h2 {
+	font-size: 30px;
+	font-family: Verdana;
+	text-align: center;
+	width: 100%;
+	display: inline-block;
+	
+}
+
+h3 {
 	font-size: 60px;
 	font-family: Verdana;
 	color:#E9C46A;
 	text-align: center;
 	width: 100%;
 	display: inline-block;
-	
 }
 
 canvas {
@@ -100,7 +108,7 @@ hr {
     margin-left: auto;
     margin-right: auto;
     width: 350px;
-    height:400px;
+    height: auto;
 
     background-color: #264653;
 	border: solid;

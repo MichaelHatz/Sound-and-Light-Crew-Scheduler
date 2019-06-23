@@ -1,125 +1,183 @@
 <!DOCTYPE html>
 <html>
-	<link rel="stylesheet" type="text/css" href="style.css">
-	<script src="script.js"></script>
-	<!-- <script src="slideshow.js"></script> -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-	<head>
-		<title>Sound and Light Scheduling</title>
-	</head>
+<link rel="stylesheet" type="text/css" href="style.css">
+<script src="script.js"></script>
+<!-- <script src="slideshow.js"></script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 
-	<script>
-		var Image_slide = new Array("Image1.jpg", "Image2.jpg", "Image3.jpg", "Image4.jpg", "Image5.jpg");// image container
-		var Img_Length  = Image_slide.length; // container length - 1
-		var Img_current = 0
+<head>
+    <title>Sound and Light Scheduling</title>
+</head>
 
+<script>
+    var Image_slide = new Array("Image1.jpg", "Image2.jpg", "Image3.jpg", "Image4.jpg", "Image5.jpg"); // image container
+    var Img_Length = Image_slide.length; // container length - 1
+    var Img_current = 0
+    var timeInterval = 5; //In seconds
 
+    $(document).ready(function() {
+        $("#LoginBtn").click(function() {
+            console.log("Login button click function");
+            $("#LoginBtn").fadeOut();
+            $("#RegisterInput").fadeOut();
+            $("#paragrahStyle")
+                .delay(500)
+                .queue(function(next) {
+                    $("#paragrahStyle").css("padding-top", "15px");
+                    next();
+                });
+            $("#loginBox").delay(800).fadeIn();
+        });
 
-		$(document).ready(function(){
-			$("#LoginBtn").click(function() {
-				console.log("Button click function")
-				$("#LoginBtn").fadeOut();
-				$("#RegisterInput").fadeOut();
-				$("#paragrahStyle")
-				.delay(500)
-				    .queue(function (next) { 
-				    $("#paragrahStyle").css("padding-top", "15px");
-				    next(); 
-				});
-				$("#loginBox").delay(800).fadeIn();
-			});
+        //When the register button is pressed the appropriate menu opens
+        $("#RegisterInput").click(function() {
+            console.log("Register button click function")
+            $("#LoginBtn").fadeOut();
+            $("#RegisterInput").fadeOut();
+            $("#paragrahStyle")
+                .delay(500)
+                .queue(function(next) {
+                    $("#paragrahStyle").css("padding-top", "15px");
+                    next();
+                });
+            $("#registerBox").delay(800).fadeIn();
+        });
 
-			setInterval(function() {
-				$("#parallax").fadeIn(500).css("background-image", "url(" + Image_slide[Img_current] + ")");
-				Img_current++
-				console.log("Set Interval working");
+        $("#returnButton").click(function() {
+            console.log("Return button click function");
+            $("#paragrahStyle")
+            $("#loginBox").fadeOut();
+            $("#paragrahStyle")
+                .delay(500)
+                .queue(function(next) {
+                    $("#paragrahStyle").css("padding-top", "200px");
+                    next();
+                });
+            $("#LoginBtn").delay(800).fadeIn();
+            $("#RegisterInput").delay(800).fadeIn();
+        });
 
-			}, 5000);
+        //Set interval which changes the parralex background
+        setInterval(function() {
+            if (Img_current < Img_Length - 1) {
+                Img_current++
+            } else {
+                console.log("Reset the img current to 0")
+                Img_current = 0;
+            }
 
-		});
+            $("#parallax").fadeIn(500).css("background-image", "url(" + Image_slide[Img_current] + ")");
 
+            console.log("Set Interval working");
 
-	</script>
-	<body>
-      	
+        }, timeInterval * 1000);
 
-		<!-- <div class="TitleBox">
+    });
+</script>
+
+<body>
+
+    <!-- <div class="TitleBox">
 			<h1>Crew Scheduler Login</h1>
 		</div>
 		<hr> -->
-		<div class = "BelowBreak">
+    <div class="BelowBreak">
 
-			<div class="parallax" id="parallax">
-				<br>
-				<div class="TitleBox">
-					<h1>Sound and Light Crew Scheduler</h1>
-				</div>
-				
-				<!-- 
-				<div style="text-align: center; width: 100%;">
-					<canvas id="canvas" width="2000" height="300"></canvas>
-				</div>
-				 -->
-				
-			<!-- <div class="LoginBox" style="height: 200px"> -->
-				<div class="hot-container">
-					<p style="padding-top: 200px" id="paragrahStyle">
-						<a id="LoginBtn" class="btn">Login</a>
-						<div hidden class="LoginBox" id="loginBox">
-				           	<div class = "Login">
-				               <h2>Username:</h2>
-				               <input type="text" name="username" id="username" value="hello" autocomplete="off"></input>
-				            </div>
+        <div class="parallax" id="parallax">
+            <br>
+            <div class="TitleBox">
+                <h1>Sound and Light Crew Scheduler</h1>
+            </div>
 
-							   <div class = "Password">
-				               <h2>Password:</h2>
-				               <input type="password" name="password" id="password" value="" autocomplete="off"></input>
-				            </div>
+            <div class="hot-container">
+                <p style="padding-top: 200px" id="paragrahStyle">
+                    <a id="LoginBtn" class="btn">Login</a>
+                    <div hidden class="LoginBox" id="loginBox">
+                        <div class="Login">
+                            <h2>Username:</h2>
+                            <input type="text" name="username" id="username" value="hello" autocomplete="off"></input>
+                        </div>
 
-				            <div class="hot-container">
-				               <p>
-				                  <a href="mainPage.html" class="btn">Submit</a>
-				               </p>
-				            </div>
-				            <div class="hot-container">
-				               <p>
-				                  <a href="index.html" class="btn">Return</a>
-				               </p>
-				            </div>
-			        	</div>
-					</p>
-					<p>
-						<a href="register.html" class="btn" id="RegisterInput">Register</a>
-					</p>
+                        <div class="Password">
+                            <h2>Password:</h2>
+                            <input type="password" name="password" id="password" value="" autocomplete="off"></input>
+                        </div>
 
+                        <div class="hot-container">
+                            <p>
+                                <a href="mainPage.html" class="btn">Submit</a>
+                            </p>
+                        </div>
+                        <div class="hot-container">
+                            <p>
+                                <a class="btn" id="returnButton">Return</a>
+                            </p>
+                        </div>
+                    </div>
 
+                    <div hidden class="LoginBox" id="registerBox">
 
-				</div>
+                        <div class="Login">
+                            <h2>Username:</h2>
+                            <input type="text" name="username" id="username" value="hello" autocomplete="off"></input>
+                        </div>
 
-				
+                        <div class="Email">
+                            <h2>Email:</h2>
+                            <input type="text" name="username" id="username" value="hello" autocomplete="off"></input>
+                        </div>
 
-			   
+                        <div class="Password">
+                            <h2>Password:</h2>
+                            <input type="password" name="password" id="password" value="" autocomplete="off"></input>
+                        </div>
+
+                        <div class="hot-container">
+                            <p>
+                                <a href="mainPage.html" class="btn">Submit</a>
+                            </p>
+                        </div>
+                        <div class="hot-container">
+                            <p>
+                                <a class="btn" id="returnButton">Return</a>
+                            </p>
+                        </div>
+                    </div>
+                </p>
+                <p>
+                    <a class="btn" id="RegisterInput">Register</a>
+                </p>
+
+            </div>
+
             <!-- <div class="SubmitButton">
                 <button class="button "type="button" onclick="CheckPassword();">Submit</button>
             </div> -->
-			  
-         </div>
 
-		</form>
-			</div>
+        </div>
+    </div>
+
+    <div class="aboutPage">
+        <h3>ABOUT</h3>
+        <p style="padding-left: 20%; padding-right: 20%; text-align: center">
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+					 dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				</p>
+				<div class="aboutPageImages">
+					<img src="image2.jpg"  id="aboutImage1"></img>
+					<img src="image3.jpg" id="aboutImage2"></img>
+				</div>
+
+    </div>
+
+		<div class="parallax" id="parallax2"></div>
+
+		<div class="copyrightBar">
+			<p style="display: inline-block">Sound and Light Crew Scheduler</p>
+			<p style="display: inline-block" style="align=right">Michael Hatzipavlis 21.7.2019</p>
 		</div>
 
-		<h3>ABOUT</h3>
+</body>
 
-		<div class="aboutPage">
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-		</div>
-
-		
-    </body>
 </html>

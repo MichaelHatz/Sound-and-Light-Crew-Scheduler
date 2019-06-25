@@ -11,17 +11,10 @@
 		<script type="text/javascript">
 			var canvas = document.getElementById("canvas");
 			context = canvas.getContext("2d");
+			// 
+			// window.addEventListener('resize', resizeCanvas, false);
 
-			window.addEventListener('resize', resizeCanvas, false);
-			function resizeCanvas() {
-    			canvas.width = window.innerWidth;
-    			canvas.height = window.innerHeight;
 
-    			// Redraw everything after resizing the window
-    			drawStuff(); 
-  			}
-
-  			resizeCanvas();
 
   			function drawStuff() {
 
@@ -32,39 +25,59 @@
   				}
 
 
-  				for (var i = 0; i < 9; i++) {
-  					context.beginPath();
-  					context.moveTo(500 + (100 * i),20);
-  					context.lineTo(500 + (100 * i),620);
-  					context.strokeStyle = "gray";
-  					context.stroke();
-            context.closePath();
-  				}
+  			for (var i = 0; i < 9; i++) {
+  				context.beginPath();
+  				context.moveTo(500 + (100 * i),20);
+  				context.lineTo(500 + (100 * i),620);
+  				context.strokeStyle = "gray";
+					context.stroke();
+          context.closePath();
+  			}
 
-  				context.strokeStyle = "black";
-  				context.strokeRect(400, 20, 1000, 600);
+  			context.strokeStyle = "black";
+  			context.strokeRect(400, 20, 1000, 600);
 
-  				
+
 
   				//First event
 				context.beginPath();
-  				context.moveTo(400, 90);
-  				context.lineTo(1400, 90);
-  				context.stroke();
+  			context.moveTo(400, 90);
+  			context.lineTo(1400, 90);
+  			context.stroke();
 
-  				context.fillStyle = "#FFBD33";
+				context.fillStyle = "#FFBD33";
 				context.fillRect(500, 40, 800, 100);
 
 				//Second event
 				context.beginPath();
-  				context.moveTo(400, 210);
-  				context.lineTo(1400, 210);
-  				context.stroke();
+  			context.moveTo(400, 210);
+  			context.lineTo(1400, 210);
+  			context.stroke();
 
-  				context.fillStyle = "#FFBD33";
+  			context.fillStyle = "#FFBD33";
+				context.fillRect(500, 160, 800, 100);
+
+				//Third event
+				context.beginPath();
+				context.moveTo(800, 330);
+				context.lineTo(1400, 330);
+				context.stroke();
+
+				context.fillStyle = "#FFBD33";
 				context.fillRect(500, 160, 800, 100);
 
   			}
+
+				setInterval(function() {
+
+							canvas.width = window.innerWidth;
+							canvas.height = window.innerHeight;
+
+							// Redraw everything after resizing the window
+							drawStuff();
+
+        }, 1000);
+
 		</script>
 
 		<div class="hot-container">

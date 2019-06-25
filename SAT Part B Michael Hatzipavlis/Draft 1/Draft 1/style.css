@@ -23,6 +23,7 @@ html {
      text-align: center;
      width: 100%;
      display: inline-block;
+     margin: 0;
 }
  h3 {
      font-size: 60px;
@@ -87,7 +88,6 @@ html {
 }
  .Password {
      text-align: center;
-     padding-top: 20px;
      padding-bottom: 30px;
 }
  .LoginBox {
@@ -139,6 +139,7 @@ html {
 
 #parallax2 {
 	background-image: url('Image5.jpg');
+     height: 600px;
 }
 
 .aboutPageImages {

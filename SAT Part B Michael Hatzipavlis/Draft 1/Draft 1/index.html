@@ -43,7 +43,7 @@
             $("#registerBox").delay(800).fadeIn();
         });
 
-        $("#returnButton").click(function() {
+        $("#returnButtonLogBox").click(function() {
             console.log("Return button click function");
             $("#paragrahStyle")
             $("#loginBox").fadeOut();
@@ -56,6 +56,21 @@
             $("#LoginBtn").delay(800).fadeIn();
             $("#RegisterInput").delay(800).fadeIn();
         });
+
+        $("#returnButtonRegBox").click(function() {
+            console.log("Return button click function");
+            $("#paragrahStyle")
+            $('#registerBox').fadeOut();
+            $("#paragrahStyle")
+                .delay(500)
+                .queue(function(next) {
+                    $("#paragrahStyle").css("padding-top", "200px");
+                    next();
+                });
+            $("#LoginBtn").delay(800).fadeIn();
+            $("#RegisterInput").delay(800).fadeIn();
+        });
+
 
         //Set interval which changes the parralex background
         setInterval(function() {
@@ -94,12 +109,12 @@
                     <a id="LoginBtn" class="btn">Login</a>
                     <div hidden class="LoginBox" id="loginBox">
                         <div class="Login">
-                            <h2>Username:</h2>
+                            <h2 style="margin-top: 15px">Username:</h2>
                             <input type="text" name="username" id="username" value="hello" autocomplete="off"></input>
                         </div>
 
                         <div class="Password">
-                            <h2>Password:</h2>
+                            <h2 style="margin-top: 15px">Password:</h2>
                             <input type="password" name="password" id="password" value="" autocomplete="off"></input>
                         </div>
 
@@ -110,7 +125,7 @@
                         </div>
                         <div class="hot-container">
                             <p>
-                                <a class="btn" id="returnButton">Return</a>
+                                <a class="btn" id="returnButtonLogBox">Return</a>
                             </p>
                         </div>
                     </div>
@@ -118,17 +133,17 @@
                     <div hidden class="LoginBox" id="registerBox">
 
                         <div class="Login">
-                            <h2>Username:</h2>
+                            <h2 style="margin-top: 15px">Username:</h2>
                             <input type="text" name="username" id="username" value="hello" autocomplete="off"></input>
                         </div>
 
                         <div class="Email">
-                            <h2>Email:</h2>
+                            <h2 style="margin-top: 15px">Email:</h2>
                             <input type="text" name="username" id="username" value="hello" autocomplete="off"></input>
                         </div>
 
                         <div class="Password">
-                            <h2>Password:</h2>
+                            <h2 style="margin-top: 15px">Password:</h2>
                             <input type="password" name="password" id="password" value="" autocomplete="off"></input>
                         </div>
 
@@ -139,7 +154,7 @@
                         </div>
                         <div class="hot-container">
                             <p>
-                                <a class="btn" id="returnButton">Return</a>
+                                <a class="btn" id="returnButtonRegBox">Return</a>
                             </p>
                         </div>
                     </div>
@@ -173,9 +188,9 @@
 
 		<div class="parallax" id="parallax2"></div>
 
-		<div class="copyrightBar">
-			<p style="display: inline-block">Sound and Light Crew Scheduler</p>
-			<p style="display: inline-block" style="align=right">Michael Hatzipavlis 21.7.2019</p>
+		<div class="copyrightBar" style="display: inline;">
+			<p class="TextWebsiteName">Sound and Light Crew Scheduler</p>
+			<p class="TextInformation">Michael Hatzipavlis 21.7.2019</p>
 		</div>
 
 </body>

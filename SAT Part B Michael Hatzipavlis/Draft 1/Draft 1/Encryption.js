@@ -11,11 +11,11 @@ function EncyrptionFun() {
   var var512Length;
 
 
-  var H0 = "0x67452301";
-  var H1 = "0xEFCDAB89";
-  var H2 = "0x98BADCFE";
-  var H3 = "0x10325476";
-  var H4 = "0xC3D2E1F0";
+  var H0 = "01100111010001010010001100000001";
+  var H1 = "11101111110011011010101110001001";
+  var H2 = "10011000101110101101110011111110";
+  var H3 = "00010000001100100101010001110110";
+  var H4 = "11000011110100101110000111110000";
 
   AsciiArray = PasswordString.split('');
   console.log(PasswordLength);
@@ -90,7 +90,7 @@ function EncyrptionFun() {
       ChunksSplitFinal[c] = (ChunksSplit3[c] ^ ChunksSplit6[c])
     }
     varChunks[i] = ChunksSplitFinal.join('');
-    
+
   }
 
   console.log(varChunks);
@@ -101,7 +101,7 @@ function EncyrptionFun() {
   var d = H3
   var e = H4
 
-  for (var i = 0; i <= 35; i++) {
+  for (var i = 0; i <= 0; i++) {
     var f;
     var e;
     var k;
@@ -109,7 +109,8 @@ function EncyrptionFun() {
 
     console.log("Main Loop")
     console.log(i);
-    if (0 <= i <= 19) {
+    if (i <= 19 && i >= 0) {
+      console.log("Variable i is equal to 0 - 19")
       var bChunkSplit = new Array();
       var cChunkSplit = new Array();
       var dChunkSplit = new Array();
@@ -117,36 +118,47 @@ function EncyrptionFun() {
       var ChunkTotal2 = new Array();
       var ChunksSplitFinal = new Array();
 
-      bChunkSplit = b.split('');
-      cChunkSplit = c.split('');
-      dChunkSplit = d.split('');
+      console.log(b);
+
+      bChunkSplit = (""+b).split("");
+      cChunkSplit = (""+c).split("");
+      dChunkSplit = (""+d).split("");
+
+      console.log(bChunkSplit);
+      console.log(cChunkSplit);
+      console.log(dChunkSplit);
 
       for (var k = 0; k <= 31; k++) {
         ChunkTotal1[k] = bChunkSplit[k] & cChunkSplit[k]
+        console.log(ChunkTotal1);
       }
 
       for (var l = 0; l <= 31; l++) {
-        ChunkTotal2[l] = ((~bChunkSplit[l]) & dChunkSplit[l])
+        ChunkTotal2[l] = (~bChunkSplit[l]) & dChunkSplit[l]
+        console.log(ChunkTotal2);
       }
 
       for (var m = 0; m <= 31; m++) {
         ChunksSplitFinal[m] = ChunkTotal1[m] | ChunkTotal2[m]
+        console.log(ChunksSplitFinal);
       }
 
       f = ChunksSplitFinal.join('');
-      k = "0x5A827999";
+      console.log(f);
+      k = "1011010100000100111100110011001";
     }
 
-    if (20 <= i <= 39) {
+    if (i >= 20 && i <= 39) {
+      console.log("Variable i is equal to 20 - 39");
       var bChunkSplit = new Array();
       var cChunkSplit = new Array();
       var dChunkSplit = new Array();
       var ChunkTotal1 = new Array();
       var ChunksSplitFinal = new Array();
 
-      bChunkSplit = b.split('');
-      cChunkSplit = c.split('');
-      dChunkSplit = d.split('');
+      bChunkSplit = (""+b).split("");
+      cChunkSplit = (""+c).split("");
+      dChunkSplit = (""+d).split("");
 
       for (var k = 0; k <= 31; k++) {
         ChunkTotal1[k] = bChunkSplit[k] ^ cChunkSplit[k];
@@ -157,21 +169,35 @@ function EncyrptionFun() {
       }
 
       f = ChunksSplitFinal.join('');
-      k = "0x6ED9EBA1";
+      k = "1101110110110011110101110100001";
+    }
+
+    if (i >= 40 && i <= 59) {
+      console.log("Variable i is equal to 40 - 59");
+    }
+
+    if (i >= 60 && i <= 79) {
+      console.log("Variable i is equal to 60 - 79");
     }
 
 
-    var tempAArray = a.split('');
+    var tempAArray = (""+a).split("");
     for (var n = 0; n <= 4; n++) {
       tempAArray.unshift(tempAArray.pop());
       tempAArray.join('');
     }
 
-    // var temp = (a) + f + e + k + varChunks[i]
-    var temp = (a);
+    //var temp = parseInt(a) + parseInt(f) + parseInt(e) + parseInt(k) + parseInt(varChunks[i]);
+    console.log(varChunks[i]);
+    console.log(f);
+    console.log(e);
+    console.log(k);
+    var temp = a.toString() + f.toString() + e.toString() + k.toString() + varChunks[i].toString();
+    console.log(temp);
+    console.log(f);
     e = d
     d = c
-    var tempBArray = b.split('');
+    var tempBArray = (""+b).split("");
     for (var j = 0; j <= 29; j++) {
       tempBArray.unshift(tempBArray.pop());
       tempBArray.join('');
@@ -179,18 +205,38 @@ function EncyrptionFun() {
     c = b
     b = a
     a = temp
-    
-  }
 
-  H0 = H0 + a
-  H1 = H1 + b 
-  H2 = H2 + c
-  H3 = H3 + d
-  H4 = H4 + e
+    while (H0.length != 32) {
+      if (H0.length <= 32) {
+        H0 = "0".concat(H0);
+      } else if (H0.length >= 32) {
+        H0 = H0.str.slice(0, -1);
+      }
+    }
 
-  console.log(H0.toString(16));
+  console.log(a);
+  console.log(H0);
 
-console.log("Finished");
+  H0 = H0 + a;
+  H1 = H1 + b;
+  H2 = H2 + c;
+  H3 = H3 + d;
+  H4 = H4 + e;
+
+
+  H0 = parseInt(H0 , 2).toString(16).toUpperCase();
+  H1 = parseInt(H1 , 2).toString(16).toUpperCase();
+  H2 = parseInt(H2 , 2).toString(16).toUpperCase();
+  H3 = parseInt(H3 , 2).toString(16).toUpperCase();
+  H4 = parseInt(H4 , 2).toString(16).toUpperCase();
+
+  console.log(H0);
+
+  var hf = H0 + H1 + H2 + H3 + H4
+
+  console.log(hf);
+
+  console.log("Finished");
 
 
 

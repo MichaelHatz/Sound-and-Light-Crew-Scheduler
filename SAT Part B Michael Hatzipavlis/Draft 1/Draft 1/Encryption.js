@@ -101,14 +101,15 @@ function EncyrptionFun() {
   var d = H3
   var e = H4
 
-  for (var i = 0; i <= 0; i++) {
+  for (var i = 0; i <= 15; i++) {
     var f;
     var e;
     var k;
     var w;
 
-    console.log("Main Loop")
     console.log(i);
+    console.log("Main Loop")
+
     if (i <= 19 && i >= 0) {
       console.log("Variable i is equal to 0 - 19")
       var bChunkSplit = new Array();
@@ -118,34 +119,33 @@ function EncyrptionFun() {
       var ChunkTotal2 = new Array();
       var ChunksSplitFinal = new Array();
 
-      console.log(b);
-
       bChunkSplit = (""+b).split("");
       cChunkSplit = (""+c).split("");
       dChunkSplit = (""+d).split("");
 
-      console.log(bChunkSplit);
-      console.log(cChunkSplit);
-      console.log(dChunkSplit);
-
       for (var k = 0; k <= 31; k++) {
         ChunkTotal1[k] = bChunkSplit[k] & cChunkSplit[k]
-        console.log(ChunkTotal1);
       }
 
       for (var l = 0; l <= 31; l++) {
         ChunkTotal2[l] = (~bChunkSplit[l]) & dChunkSplit[l]
-        console.log(ChunkTotal2);
       }
 
       for (var m = 0; m <= 31; m++) {
         ChunksSplitFinal[m] = ChunkTotal1[m] | ChunkTotal2[m]
-        console.log(ChunksSplitFinal);
       }
 
       f = ChunksSplitFinal.join('');
       console.log(f);
-      k = "1011010100000100111100110011001";
+
+      //Set the k variable and make sure that the variable is 32 bit long
+
+      k = "0x5A827999";
+      k = parseInt(k, 16).toString(2).padStart(8, '0');
+
+      while (k.length != 32) {
+        k = "0".concat(k);
+      }
     }
 
     if (i >= 20 && i <= 39) {
@@ -169,7 +169,12 @@ function EncyrptionFun() {
       }
 
       f = ChunksSplitFinal.join('');
-      k = "1101110110110011110101110100001";
+      k = "0x6ED9EBA1";
+      k = parseInt(k, 16).toString(2).padStart(8, '0');
+
+      while (k.length != 32) {
+        k = "0".concat(k);
+      }
     }
 
     if (i >= 40 && i <= 59) {
@@ -187,35 +192,23 @@ function EncyrptionFun() {
       tempAArray.join('');
     }
 
-    //var temp = parseInt(a) + parseInt(f) + parseInt(e) + parseInt(k) + parseInt(varChunks[i]);
-    console.log(varChunks[i]);
-    console.log(f);
-    console.log(e);
-    console.log(k);
     var temp = a.toString() + f.toString() + e.toString() + k.toString() + varChunks[i].toString();
     console.log(temp);
     console.log(f);
     e = d
     d = c
+
     var tempBArray = (""+b).split("");
+
     for (var j = 0; j <= 29; j++) {
       tempBArray.unshift(tempBArray.pop());
       tempBArray.join('');
     }
+
     c = b
     b = a
     a = temp
-
-    while (H0.length != 32) {
-      if (H0.length <= 32) {
-        H0 = "0".concat(H0);
-      } else if (H0.length >= 32) {
-        H0 = H0.str.slice(0, -1);
-      }
-    }
-
-  console.log(a);
-  console.log(H0);
+  }
 
   H0 = H0 + a;
   H1 = H1 + b;
@@ -224,15 +217,54 @@ function EncyrptionFun() {
   H4 = H4 + e;
 
 
-  H0 = parseInt(H0 , 2).toString(16).toUpperCase();
-  H1 = parseInt(H1 , 2).toString(16).toUpperCase();
-  H2 = parseInt(H2 , 2).toString(16).toUpperCase();
-  H3 = parseInt(H3 , 2).toString(16).toUpperCase();
-  H4 = parseInt(H4 , 2).toString(16).toUpperCase();
+  console.log(H0);
+  console.log(H1);
+  console.log(H2);
+  console.log(H3);
+  console.log(H4);
+
+  for (var i = 0; i <= 4; i++) {
+    var temp;
+
+    if (i == 0) {
+      temp = H0;
+    } else if (i == 1) {
+      temp = H1;
+    } else if (i == 2) {
+      temp = H2;
+    } else if (i == 3) {
+      temp = H3;
+    } else if (i == 4) {
+      temp = H4;
+    }
+
+    while (temp.toString().length != 32) {
+
+      if (temp.toString().length <= 32) {
+        temp = "0".concat(temp);
+      } else if (temp.toString().length >= 32) {
+        temp = temp.substring(0, temp.length - 1);
+      }
+    }
+
+    if (i == 0) {
+      H0 = temp;
+    } else if (i == 1) {
+      H1 = temp;
+    } else if (i == 2) {
+      H2 = temp;
+    } else if (i == 3) {
+      H3 = temp;
+    } else if (i == 4) {
+      H4 = temp;
+    }
+  }
 
   console.log(H0);
 
-  var hf = H0 + H1 + H2 + H3 + H4
+  var hf = H0 + H1 + H2 + H3 + H4;
+
+  hr = parseInt(hf, 2).toString(16);
 
   console.log(hf);
 

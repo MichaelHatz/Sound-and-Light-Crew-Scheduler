@@ -1,3 +1,12 @@
+
+
+
+
+
+
+
+
+
 function EncyrptionFun() {
 
   var PasswordString = document.getElementById('password').value;
@@ -10,17 +19,19 @@ function EncyrptionFun() {
   var var512 = "";
   var var512Length;
 
-
+  //Set the variables for the hashes
   var H0 = "01100111010001010010001100000001";
   var H1 = "11101111110011011010101110001001";
   var H2 = "10011000101110101101110011111110";
   var H3 = "00010000001100100101010001110110";
   var H4 = "11000011110100101110000111110000";
 
+  //Turn the password into an array and then split it
   AsciiArray = PasswordString.split('');
   console.log(PasswordLength);
   console.log(AsciiArray);
 
+  //Turn the array into binary
   for (var i = 0; i < PasswordLength; i++) {
     BinaryArray[i] = AsciiArray[i].charCodeAt(0).toString(2);
     console.log(BinaryArray[i].length);
@@ -33,14 +44,14 @@ function EncyrptionFun() {
 
   }
 
+  //Forgot what these two lines do
   varString2 = varString1.concat("1");
   console.log(varString2.length);
 
+  //Make sure that the binary at least 512 bit
   while (varString2.length % 512 != 448)  {
     varString2 = varString2.concat("0");
   }
-
-  console.log(varString2.length);
 
   varString1Length = (varString1.length).toString(2);
 
@@ -60,6 +71,7 @@ function EncyrptionFun() {
 
   varChunks = var512.match(/.{31}./g);
 
+  //Make array have a length of 80 by filling in with chunks
   for (var i = 16; i <= 79; i++) {
     var ChunksSplit1 = new Array();
     var ChunksSplit2 = new Array();
@@ -73,8 +85,6 @@ function EncyrptionFun() {
     ChunksSplit2 = varChunks[i-8].split('');
     ChunksSplit4 = varChunks[i-14].split('');
     ChunksSplit5 = varChunks[i-16].split('');
-
-
 
     console.log("Spliting into 80 chunks")
 

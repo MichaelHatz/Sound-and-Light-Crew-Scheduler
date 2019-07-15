@@ -11,11 +11,13 @@
 </head>
 
 <script>
+    //The array needs to have the amount of people regired to make the person the amount needed
     var Image_slide = new Array("Image1.jpg", "Image2.jpg", "Image3.jpg", "Image4.jpg", "Image5.jpg"); // image container
     var Img_Length = Image_slide.length; // container length - 1
     var Img_current = 0
     var timeInterval = 5; //In seconds
 
+    //This checks for the document and if the login button has been pressed and opens the appropriate menu
     $(document).ready(function() {
         $("#LoginBtn").click(function() {
             console.log("Login button click function");
@@ -92,7 +94,17 @@
 </script>
 
 <body>
+    <?php 
+        $sql = "SELECT * FROM user;";
+        $result = mysqli_query($conn, $sql);
+        $resultCheck = mysqli_num_rows($result);
 
+        if ($resultCheck > 0) {
+            while ($row = mysqli_fetch_assoc($result)) {
+                echo $row['id'];
+            }
+        }
+    ?>
     <!-- <div class="TitleBox">
 			<h1>Crew Scheduler Login</h1>
 		</div>
@@ -109,26 +121,28 @@
                 <p style="padding-top: 200px" id="paragrahStyle">
                     <a id="LoginBtn" class="btn">Login</a>
                     <div hidden class="LoginBox" id="loginBox">
-                        <div class="Login">
-                            <h2 style="margin-top: 15px">Username:</h2>
-                            <input type="text" name="username" id="username" value="hello" autocomplete="off"></input>
-                        </div>
+                        <form method="POST" action="connect.php">
+                            <div class="Login">
+                                <h2 style="margin-top: 15px">Username:</h2>
+                                <input type="text" name="username" id="username" value="hello" autocomplete="off"></input>
+                            </div>
 
-                        <div class="Password">
-                            <h2 style="margin-top: 15px">Password:</h2>
-                            <input type="password" name="password" id="password" value="" autocomplete="off"></input>
-                        </div>
+                            <div class="Password">
+                                <h2 style="margin-top: 15px">Password:</h2>
+                                <input type="password" name="password" id="password" value="" autocomplete="off"></input>
+                            </div>
 
-                        <div class="hot-container">
-                            <p>
-                                <a class="btn" onclick="EncyrptionFun()">Submit</a>
-                            </p>
-                        </div>
-                        <div class="hot-container">
-                            <p>
-                                <a class="btn" id="returnButtonLogBox">Return</a>
-                            </p>
-                        </div>
+                            <div class="hot-container">
+                                <p>
+                                    <a class="btn" onclick="EncyrptionFun()">Submit</a>
+                                </p>
+                            </div>
+                            <div class="hot-container">
+                                <p>
+                                    <a class="btn" id="returnButtonLogBox">Return</a>
+                                </p>
+                            </div>
+                        </form>
                     </div>
 
                     <div hidden class="LoginBox" id="registerBox">
@@ -172,6 +186,10 @@
 
         </div>
     </div>
+
+    <form action="">
+        <input type="submit" value="click">
+    </form>
 
     <div class="aboutPage">
         <h3>ABOUT</h3>

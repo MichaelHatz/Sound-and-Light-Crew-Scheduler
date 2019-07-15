@@ -1,15 +1,6 @@
-
-
-
-
-
-
-
-
-
 function EncyrptionFun() {
 
-  var PasswordString = document.getElementById('password').value;
+  var PasswordString = document.getElementById('passwordLogin').value;
   var PasswordLength = PasswordString.length;
   var AsciiArray = new Array();
   var BinaryArray = new Array();
@@ -428,9 +419,14 @@ function EncyrptionFun() {
     return ret;
   }
 
+
+  //test
   var final = binaryToHex(hf);
 
   console.log(final);
+
+  //WORST IDEA EVER FOR SECURITY CHANGING THE DOCUMENT VARIABLE TO BE THE HASH FOR THE MYSQLI
+  document.getElementById("passwordLogin").value = final;
 
   console.log("Finished");
 }

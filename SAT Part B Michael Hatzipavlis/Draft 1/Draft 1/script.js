@@ -6,6 +6,8 @@ console.log("Is the script connected");
 
 /*drawStuff();*/
 
+//help
+
 function CheckPassword() {
 
 	var str_username = document.getElementById("username").value;

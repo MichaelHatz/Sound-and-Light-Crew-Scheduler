@@ -2,7 +2,6 @@
 	
 	include 'connect.php';
 
-	echo "Process has been connected to the database";
 	$username = $_POST['username'];
 	$password = $_POST['password'];
 
@@ -23,7 +22,9 @@
 
 	if ($row['Username'] == $username && $row['Password'] == $password) {
 		echo "<br> Successful Login";
-		header("Location: ../Draft1/index.php");
+		header("Location: ../Draft_1/mainPage.php");
+	} else {
+		echo "<br> Unsuccessful Login";
 	}
 
 ?>	

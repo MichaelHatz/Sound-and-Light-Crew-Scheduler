@@ -8,9 +8,5 @@
 	$con = mysqli_connect($host,$user,$password,$db);
 	if(!$con) {
 		echo "Database Connection Error...".mysdqli_connect_error();
-	} else {
-		echo"Database Connection Success....";
 	}
-
-	echo $user;
 ?>

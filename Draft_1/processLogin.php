@@ -18,8 +18,7 @@
 	// $resultCheck = mysqli_num_rows($result);
 
 	$row = mysqli_fetch_array($result);
-
-
+	
 	if ($row['Username'] == $username && $row['Password'] == $password) {
 		echo "<br> Successful Login";
 		header("Location: ../Draft_1/mainPage.php?username=".$username);

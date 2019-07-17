@@ -31,9 +31,12 @@
 		        <div>sun</div>
 		      </div>
 		      <div class="calendar__week">
-		        <div class="calendar__day day">1</div>
-						<input value='<?php echo $username; ?>'></input>
-		        <div class="calendar__day day">2</div>
+		        <div class="calendar__day day">
+		        	1<br><?php echo $Day1; ?>
+		        </div>
+		        <div class="calendar__day day">
+		        	2<br><?php echo $Day2; ?>
+		        </div>
 		        <div class="calendar__day day">3</div>
 		        <div class="calendar__day day">4</div>
 		        <div class="calendar__day day">5</div>

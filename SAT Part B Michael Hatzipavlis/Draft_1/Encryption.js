@@ -1,6 +1,13 @@
-function EncyrptionFun() {
+function EncyrptionFun(type) {
 
-  var PasswordString = document.getElementById('passwordLogin').value;
+  var PasswordString = "";
+
+  if (type == 'login') {
+    PasswordString = document.getElementById('passwordLogin').value;
+  } else if (type == 'register') {
+    PasswordString = document.getElementById('passwordRegister').value;
+  }
+  
   var PasswordLength = PasswordString.length;
   var AsciiArray = new Array();
   var BinaryArray = new Array();
@@ -427,6 +434,7 @@ function EncyrptionFun() {
 
   //WORST IDEA EVER FOR SECURITY CHANGING THE DOCUMENT VARIABLE TO BE THE HASH FOR THE MYSQLI
   document.getElementById("passwordLogin").value = final;
+  document.getElementById("passwordRegister").value = final;
 
   console.log("Finished");
 }

@@ -115,7 +115,7 @@
                 <p style="padding-top: 200px" id="paragrahStyle">
                     <a id="LoginBtn" class="btn">Login</a>
                     <div hidden class="LoginBox" id="loginBox">
-                        <form method="post" action="process.php">
+                        <form id="loginForm" method="post" action="processLogin.php">
                             <div class="Login">
                                 <h2 style="margin-top: 15px">Username:</h2>
                                 <input type="text" name="username" id="usernameLogin" value="" autocomplete="off"></input>
@@ -128,7 +128,7 @@
 
                             <div class="hot-container">
                                 <p>
-                                    <a class="btn" onclick="EncyrptionFun()">Submit</a>
+                                    <a class="btn" onclick="EncyrptionFun('login'); document.getElementById('loginForm').submit();">Submit</a>
                                 </p>
                             </div>
                             <div class="hot-container">
@@ -137,37 +137,38 @@
                                 </p>
                             </div>
 
-                            <input type="submit" id="btn" value="login"/>
+                            <!-- <input type="submit" id="btn" value="login"/> -->
                         </form>
                     </div>
 
                     <div hidden class="LoginBox" id="registerBox">
+                        <form id="registerForm" method = "post" action = "processRegister.php">
+                            <div class="Login">
+                                <h2 style="margin-top: 15px">Username:</h2>
+                                <input type="text" name="username" id="username" value="" autocomplete="off"></input>
+                            </div>
 
-                        <div class="Login">
-                            <h2 style="margin-top: 15px">Username:</h2>
-                            <input type="text" name="username" id="username" value="hello" autocomplete="off"></input>
-                        </div>
+                            <div class="Email">
+                                <h2 style="margin-top: 15px">Email:</h2>
+                                <input type="text" name="email" id="username" value="" autocomplete="off"></input>
+                            </div>
 
-                        <div class="Email">
-                            <h2 style="margin-top: 15px">Email:</h2>
-                            <input type="text" name="username" id="username" value="hello" autocomplete="off"></input>
-                        </div>
+                            <div class="Password">
+                                <h2 style="margin-top: 15px">Password:</h2>
+                                <input type="password" name="password" id="passwordRegister" value="" autocomplete="off"></input>
+                            </div>
 
-                        <div class="Password">
-                            <h2 style="margin-top: 15px">Password:</h2>
-                            <input type="password" name="password" id="password" value="" autocomplete="off"></input>
-                        </div>
-
-                        <div class="hot-container">
-                            <p>
-                                <a href="mainPage.html" class="btn">Submit</a>
-                            </p>
-                        </div>
-                        <div class="hot-container">
-                            <p>
-                                <a class="btn" id="returnButtonRegBox">Return</a>
-                            </p>
-                        </div>
+                            <div class="hot-container">
+                                <p>
+                                    <a class="btn" onclick="EncyrptionFun('register'); document.getElementById('registerForm').submit();">Submit</a>
+                                </p>
+                            </div>
+                            <div class="hot-container">
+                                <p>
+                                    <a class="btn" id="returnButtonRegBox">Return</a>
+                                </p>
+                            </div>
+                        </form>
                     </div>
                 </p>
                 <p>

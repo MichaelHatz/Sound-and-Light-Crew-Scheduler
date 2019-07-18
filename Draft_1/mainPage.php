@@ -6,10 +6,16 @@
 <!DOCTYPE html>
 <html>
 	<link rel="stylesheet" type="text/css" href="mainPageStyle.css">
+	<link rel="stylesheet" type="text/css" href="toolbar.css">
 	<head>
 		<title>Sound and Light Crew Scheduling</title>
 	</head>
 	<body>
+
+		
+
+
+
 		<main>
 		    <div class="toolbar">
 		      <div class="toggle">

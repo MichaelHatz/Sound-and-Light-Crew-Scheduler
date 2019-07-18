@@ -19,7 +19,7 @@
 
   print_r($row);
 
-  if ($row['startDate'] == '2019-07-17') {
+  if ($row['startDate'] <= '#2019-07-19#') {
 		echo "<br> Successful entry";
     $Day1 = $row['eventDescription'];
 	} else {

@@ -81,7 +81,7 @@ sidebar {
     grid-template-columns: 1fr;
     grid-template-rows: 50px auto 1fr 50px;
   }
-  
+
   .menu {
     flex-direction: column;
     align-items: normal;
@@ -117,7 +117,7 @@ sidebar {
 .calendar__week,
 .calendar__header {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);  
+  grid-template-columns: repeat(7, 1fr);
 }
 .calendar__week {
   grid-auto-rows: 100px;

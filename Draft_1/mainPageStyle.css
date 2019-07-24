@@ -255,3 +255,9 @@ main {
   font-weight: 500;
   box-shadow: 1px 2px 30px -5px var(--red);
 }
+
+
+.event {
+  background-color: #a1eca1;
+  color:white;
+}

@@ -20,7 +20,7 @@
 		    <div class="toolbar">
 		      <div class="toggle">
 		      </div>
-		      <div class="current-month">June 2016</div>
+		      <div class="current-month">July 2019</div>
 		      <div class="search-input">
 		        <input type="text" value="What are you looking for?">
 		        <i class="fa fa-search"></i>
@@ -38,52 +38,118 @@
 		      </div>
 		      <div class="calendar__week">
 		        <div class="calendar__day day">
-		        	1<br><?php echo $Day1; ?>
+		        	1<br><div class="event"> <?php echo $informationDates[1]; ?> </div>
 		        </div>
 		        <div class="calendar__day day">
-		        	2<br><?php echo $Day2; ?>
+		        	2<br><div class="event"> <?php echo $informationDates[2]; ?> </div>
 		        </div>
-		        <div class="calendar__day day">3</div>
-		        <div class="calendar__day day">4</div>
-		        <div class="calendar__day day">5</div>
-		        <div class="calendar__day day">6</div>
-		        <div class="calendar__day day">7</div>
+		        <div class="calendar__day day">
+		        	3<br><div class="event"> <?php echo $informationDates[3]; ?> </div>
+		        </div>
+		        <div class="calendar__day day">
+		        	4<br><div class="event"> <?php echo $informationDates[4]; ?> </div>
+		        </div>
+		        <div class="calendar__day day">
+		        	5<br><div class="event"> <?php echo $informationDates[5]; ?> </div>
+		        </div>
+		        <div class="calendar__day day">
+		        	6<br><div class="event"> <?php echo $informationDates[6]; ?> </div>
+		        </div>
+		        <div class="calendar__day day">
+		        	7<br><div class="event"> <?php echo $informationDates[7]; ?> </div>
+		        </div>
 		      </div>
 		      <div class="calendar__week">
-		        <div class="calendar__day day">8</div>
-		        <div class="calendar__day day">9</div>
-		        <div class="calendar__day day">10</div>
-		        <div class="calendar__day day">11</div>
-		        <div class="calendar__day day">12</div>
-		        <div class="calendar__day day">13</div>
-		        <div class="calendar__day day">14</div>
+		        <div class="calendar__day day">
+		        	8<br><div class="event"> <?php echo $informationDates[8]; ?> </div>
+		        </div>
+		        <div class="calendar__day day">
+		        	9<br><div class="event"> <?php echo $informationDates[9]; ?> </div>
+		        </div>
+		        <div class="calendar__day day">
+		        	10<br><div class="event"> <?php echo $informationDates[10]; ?> </div>
+		        </div>
+		        <div class="calendar__day day">
+		        	11<br><div class="event"> <?php echo $informationDates[11]; ?> </div>
+		        </div>
+		        <div class="calendar__day day">
+		        	12<br><div class="event"> <?php echo $informationDates[12]; ?> </div>
+		        </div>
+		        <div class="calendar__day day">
+		        	13<br><div class="event"> <?php echo $informationDates[13]; ?> </div>
+		        </div>
+		        <div class="calendar__day day">
+		        	14<br><div class="event"> <?php echo $informationDates[14]; ?> </div>
+		        </div>
 		      </div>
 		      <div class="calendar__week">
-		        <div class="calendar__day day">15</div>
-		        <div class="calendar__day day">16</div>
-		        <div class="calendar__day day">17</div>
-		        <div class="calendar__day day">18</div>
-		        <div class="calendar__day day">19</div>
-		        <div class="calendar__day day">20</div>
-		        <div class="calendar__day day">21</div>
+		        <div class="calendar__day day">
+		        	15<br><div class="event"> <?php echo $informationDates[15]; ?> </div>
+		        </div>
+		        <div class="calendar__day day">
+		        	16<br><div class="event"> <?php echo $informationDates[16]; ?> </div>
+		        </div>
+		        <div class="calendar__day day">
+		        	17<br><div class="event"> <?php echo $informationDates[17]; ?> </div>
+		        </div>
+		        <div class="calendar__day day">
+		        	18<br><div class="event"> <?php echo $informationDates[18]; ?> </div>
+		        </div>
+		        <div class="calendar__day day">
+		        	19<br><div class="event"> <?php echo $informationDates[19]; ?> </div>
+		        </div>
+		        <div class="calendar__day day">
+		        	20<br><div class="event"> <?php echo $informationDates[20]; ?> </div>
+		        </div>
+		        <div class="calendar__day day">
+		        	21<br><div class="event"> <?php echo $informationDates[21]; ?> </div>
+		        </div>
 		      </div>
 		      <div class="calendar__week">
-		        <div class="calendar__day day">22</div>
-		        <div class="calendar__day day">23</div>
-		        <div class="calendar__day day">24</div>
-		        <div class="calendar__day day">25</div>
-		        <div class="calendar__day day">26</div>
-		        <div class="calendar__day day">27</div>
-		        <div class="calendar__day day">28</div>
+		        <div class="calendar__day day">
+		        	22<br><div class="event"> <?php echo $informationDates[22]; ?> </div>
+		        </div>
+		        <div class="calendar__day day">
+		        	23<br><div class="event"> <?php echo $informationDates[23]; ?> </div>
+		        </div>
+		        <div class="calendar__day day">
+		        	24<br><div class="event"> <?php echo $informationDates[24]; ?> </div>
+		        </div>
+		        <div class="calendar__day day">
+		        	25<br><div class="event"> <?php echo $informationDates[25]; ?> </div>
+		        </div>
+		        <div class="calendar__day day">
+		        	26<br><div class="event"> <?php echo $informationDates[26]; ?> </div>
+		        </div>
+		        <div class="calendar__day day">
+		        	27<br><div class="event"> <?php echo $informationDates[27]; ?> </div>
+		        </div>
+		        <div class="calendar__day day">
+		        	28<br><div class="event"> <?php echo $informationDates[28]; ?> </div>
+		        </div>
 		      </div>
 		      <div class="calendar__week">
-		        <div class="calendar__day day">29</div>
-		        <div class="calendar__day day">30</div>
-		        <div class="calendar__day day">31</div>
-		        <div class="calendar__day day">1</div>
-		        <div class="calendar__day day">2</div>
-		        <div class="calendar__day day">3</div>
-		        <div class="calendar__day day">4</div>
+		        <div class="calendar__day day">
+		        	29<br><div class="event"> <?php echo $informationDates[29]; ?> </div>
+		        </div>
+		        <div class="calendar__day day">
+		        	30<br><div class="event"> <?php echo $informationDates[30]; ?> </div>
+		        </div>
+		        <div class="calendar__day day">
+		        	31<br><div class="event"> <?php echo $informationDates[31]; ?> </div>
+		        </div>
+		        <div class="calendar__day day">
+		        	1<br><div class="event"> <?php echo $informationDates[32]; ?> </div>
+		        </div>
+		        <div class="calendar__day day">
+		        	2<br><div class="event"> <?php echo $informationDates[33]; ?> </div>
+		        </div>
+		        <div class="calendar__day day">
+		        	3<br><div class="event"> <?php echo $informationDates[34]; ?> </div>
+		        </div>
+		        <div class="calendar__day day">
+		        	4<br><div class="event"> <?php echo $informationDates[35]; ?> </div>
+		        </div>
 		      </div>
 		    </div>
 		  </main>

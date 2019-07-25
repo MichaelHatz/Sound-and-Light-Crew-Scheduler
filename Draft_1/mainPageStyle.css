@@ -10,7 +10,7 @@
 
 @media screen and (min-width: 850px) {
   .wrapper {
-    grid-template-columns: 200px 5fr;
+    grid-template-columns: 400px 5fr;
     grid-template-rows: 1fr;
     grid-template-areas: "sidebar content";
   }
@@ -72,7 +72,7 @@ sidebar {
   display: none;
 }
 
-@media screen and (min-width: 850px) {
+@media screen and (min-width: 401px) {
   sidebar {
     grid-template-areas: "logo"
                          "avatar"
@@ -120,7 +120,7 @@ sidebar {
   grid-template-columns: repeat(7, 1fr);
 }
 .calendar__week {
-  grid-auto-rows: 100px;
+  grid-auto-rows: minmax(100px, auto);
   text-align: right;
 }
 
@@ -270,4 +270,26 @@ main {
   text-align: center;
   /* sbackground-color: #a1eca1; */
   color:white;
+}
+
+
+.collapsedSubHeading {
+  background-color: #5bc995;
+  height: 100px;
+  font-size: 50px;
+  color: white;
+  line-height: 100px;
+  padding-left: 30px;
+}
+
+.collapsedSubHeading:before {
+  content: "\f103";
+  font-family: FontAwesome;
+}
+
+.collapsedBodyParagraph {
+  background-color: #51b585;
+  color: white;
+  font-size: 30px;
+  height: 300px;
 }

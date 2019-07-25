@@ -1,5 +1,16 @@
 <?php
+    session_start();
     include_once 'connect.php';
+
+    function redirect($DoDie = true) {
+      header('Location: mainPage.php');
+      if ($DoDie)
+          die();
+    }
+
+    if(isset($_SESSION['user_id'])) {
+      redirect();
+    }
 ?>
 
 <!DOCTYPE html>
@@ -98,7 +109,7 @@
 </script>
 
 <body>
-    
+
     <!-- <div class="TitleBox">
 			<h1>Crew Scheduler Login</h1>
 		</div>

@@ -132,6 +132,8 @@ sidebar {
 
 .calendar__day {
   padding: 16px;
+  font-size: 20px;
+  text-align: left;
 }
 
 
@@ -256,8 +258,16 @@ main {
   box-shadow: 1px 2px 30px -5px var(--red);
 }
 
+.breakNumber {
+  line-height: 30px;
+}
 
 .event {
-  background-color: #a1eca1;
+  background-color: deepskyblue;
+  align-self: flex-end;
+  border-radius: 5px;
+  font-size: 15px;
+  text-align: center;
+  /* sbackground-color: #a1eca1; */
   color:white;
 }

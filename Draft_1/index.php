@@ -11,6 +11,17 @@
     if(isset($_SESSION['user_id'])) {
       redirect();
     }
+
+    $errors = array (
+        1 => "Hello, world",
+        2 => "My house is on fire!"
+    );
+
+    $error_id = isset($_GET['err']) ? (int)$_GET['err'] : 0;
+
+    if ($error_id != 0) {
+        echo $errors[$error_id];
+    }
 ?>
 
 <!DOCTYPE html>
@@ -211,9 +222,14 @@
 
 		<div class="parallax" id="parallax2"></div>
 
-		<div class="copyrightBar" style="display: inline;">
-			<p class="TextWebsiteName">Sound and Light Crew Scheduler</p>
-			<p class="TextInformation">Michael Hatzipavlis 21.7.2019</p>
+		<div class="copyrightBar" style="width: auto; overflow: hidden; display: block; height: 75px;">
+            <div style="width: 50%; float: left;">
+                <p class="TextWebsiteName">Sound and Light Crew Scheduler</p>
+            </div>
+			<div style="width: auto; overflow: hidden; float: right;">
+                <p class="TextInformation">Michael Hatzipavlis 21.7.2019</p>
+            </div>
+			
 		</div>
 
 </body>

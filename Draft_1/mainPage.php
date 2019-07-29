@@ -2,6 +2,7 @@
 	session_start();
 	include_once 'calendarProcess.php';
 
+
 	function redirect($DoDie = true) {
 		header('Location: index.php');
 		if ($DoDie)
@@ -22,10 +23,8 @@
 	<link rel="stylesheet" type="text/css" href="toolbar.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-	<link href="//cdn.jsdelivr.net/timepicker.js/latest/timepicker.min.css"  rel="stylesheet">
-	<script src="//cdn.jsdelivr.net/timepicker.js/latest/timepicker.min.js"></script>
-
-
+	<!-- <link href="//cdn.jsdelivr.net/timepicker.js/latest/timepicker.min.css"  rel="stylesheet">
+	<script src="//cdn.jsdelivr.net/timepicker.js/latest/timepicker.min.js"></script> -->
 
 	<head>
 		<title>Sound and Light Crew Scheduling</title>
@@ -36,13 +35,13 @@
 			<div class="smartphone-menu-trigger"></div>
 		  <header class="avatar">
 				<img src="https://i.pravatar.cc/300" />
-		    <h2><?php echo $_SESSION['user_id'] ?></h2>
+		    <h2 style="text-decoration: underline;"><?php echo $_SESSION['user_id'] ?></h2>
 		  </header>
 			<ul>
 		    <a id="Schedule"><li tabindex="0" class="icon-dashboard"><span>Schedule</span></li></a>
 		    <a id="Documentation"><li tabindex="0" class="icon-customers"><span>Documentation</span></li></a>
 		    <a id="Events"><li tabindex="0" class="icon-users"><span>Events</span></li></a>
-		    <li tabindex="0" class="icon-settings"><span>Settings</span></li>
+		    <a id="SettingsSideBar"><li tabindex="0" class="icon-settings"><span>Settings</span></li></a>
 			<a href="logout.php"><li tabindex="0" class="icon-users"><span>Logout</span></li></a>
 		  </ul>
 		</nav>
@@ -186,63 +185,89 @@
 		        </div>
 		      </div>
 		    </div>
-		  </main>
+		</main>
 
-			<main id="DocumentationMain" style="display: none">
-				<div>
-					<div class="collapsedSubHeading" id="WebsiteHeading">
-						Using the website
-					</div>
-					<div class="collapsedBodyParagraph" id="WebsiteBody" style="display: none">
-						Hello this is a paragraph
-					</div>
+		<main id="DocumentationMain" style="display: none">
+			<div>
+				<div class="collapsedSubHeading" id="WebsiteHeading">
+					Using the website
 				</div>
+				<div class="collapsedBodyParagraph" id="WebsiteBody" style="display: none">
+					Hello this is a paragraph
+				</div>
+			</div>
+			<br>
+			<div>
+				<div class="collapsedSubHeading" id="BioBoxHeading">
+					BioBox
+				</div>
+				<div class="collapsedBodyParagraph" id="BioBoxBody" style="display: none">
+					Hello this is a paragraph
+				</div>
+			</div>
+			<br>
+			<div>
+				<div class="collapsedSubHeading" id="CrewCallsHeading">
+					Crew Calls
+				</div>
+				<div class="collapsedBodyParagraph" id="CrewCallsBody" style="display: none">
+					Hello this is a paragraph
+				</div>
+			</div>
+			
+		</main>
+
+		<main id="EventMain" style="display: none">
+			<form id="EventForm" method="post" action="processEvent.php">
+				<h2>Events</h2>
 				<br>
-				<div>
-					<div class="collapsedSubHeading" id="BioBoxHeading">
-						BioBox
-					</div>
-					<div class="collapsedBodyParagraph" id="BioBoxBody" style="display: none">
-						Hello this is a paragraph
-					</div>
-				</div>
+				<h4>Start Date of the Event:</h4>
+				<input type="date" name="startDate"></input>
 				<br>
-				<div>
-					<div class="collapsedSubHeading" id="CrewCallsHeading">
-						Crew Calls
-					</div>
-					<div class="collapsedBodyParagraph" id="CrewCallsBody" style="display: none">
-						Hello this is a paragraph
-					</div>
-				</div>
-				
-			</main>
+				<h4>Start Time of the Event:</h4>
+				<input type="time" name="startTime"></input>
+				<br>
+				<h4>End Time of the Event:</h4>
+				<input type="time" name="endTime"></input>
+				<br>
+				<h4>Event Description:</h4>
+				<input type="text" name="eventDescription"></input>
+				<br>
+				<h4>People attending the event:</h4>
+				<input type="text" name="users"></input>
+				<br>
+				<br>
+				<input type="button" name="submitEvent" onclick="document.getElementById('EventForm').submit();" value="Submit" />
+			</form>
 
-			<main id="EventMain" style="display: none">
-				<form id="EventForm" method="post" action="processEvent.php">
-					<h4>Start Date of the Event:</h4>
-					<input type="date" name="startDate"></input>
-					<br>
-					<h4>Start Time of the Event:</h4>
-					<input type="time" name="startTime"></input>
-					<br>
-					<h4>End Time of the Event:</h4>
-					<input type="time" name="endTime"></input>
-					<br>
-					<h4>Event Description:</h4>
-					<input type="text" name="eventDescription"></input>
-					<br>
-					<h4>People attending the event:</h4>
-					<input type="text" name="users"></input>
-					<br>
-					<br>
-					<input type="button" name="submitEvent" onclick="document.getElementById('EventForm').submit();" value="Submit" />
-				</form>
-			</main>
+			<div class="Users">
+				<h2>Members</h2>
+				<br>
+				<p><?php echo $MemberList ?>
+			</div>
+		</main>
 
-			<main id="Settings" style="display: none">
+		<main id="Settings" style="display: none">
+			<h2>Members</h2>
+				<br>
+		</main>
 
-			</main>
+		<script type="text/javascript">
+			var accountlevel = "<?php echo $userclass; ?>";
+
+			var el = document.getElementById("EventMain");
+			var elsidebar = document.getElementById("Events");
+			
+			if (accountlevel == "Member") {
+				elsidebar.remove();
+				el.remove();
+			} else {
+
+			}
+
+			
+
+		</script>
 
 	</body>
 </html>

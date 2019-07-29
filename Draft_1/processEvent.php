@@ -11,6 +11,7 @@
 
 	$datas = array();
 
+	echo $startDate;
 	echo $startTime;
 
 	$result = mysqli_query($con, "SELECT * from events") or die("Failed to query database".mysqli_error());
@@ -23,12 +24,13 @@
 	    }
 	}
 
-	print_r($datas);
+	$sql = "INSERT INTO events (startDate,startTime,endTime,eventDescription,users)
+	VALUES ('$startDate','$startTime','$endTime','eventDescription','users')";
 
-
-
-	
-	
-	
+	if (mysqli_query($con, $sql)) {
+       echo "New record created successfully";
+    } else {
+       echo "Error: " . $sql . "" . mysqli_error($con);
+    }
 	
 ?>

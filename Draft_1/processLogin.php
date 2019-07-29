@@ -21,10 +21,11 @@
 
 	if ($row['Username'] == $username && $row['Password'] == $password) {
 		$_SESSION['user_id'] = $username;
+		$_SESSION['user_class'] = $row['userClass'];
 		echo "<br> Successful Login";
 		header("Location: ../Draft_1/mainPage.php");
 	} else {
-		echo "<br> Unsuccessful Login";
+		header("Location: ../Draft_1/index.php?err=1");
 	}
 
 ?>

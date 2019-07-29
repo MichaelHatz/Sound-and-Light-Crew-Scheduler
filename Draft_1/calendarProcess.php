@@ -4,18 +4,27 @@
 
   //Declare variables
   $username = $_SESSION["user_id"];
+  $userclass = $_SESSION['user_class'];
   $datas = array();
   $informationDates = array();
 
   $result = mysqli_query($con, "SELECT startDate,endTime,startTime,eventDescription,users from events") or die("Failed to query database".mysqli_error());
+  $resultUsers = mysqli_query($con, "SELECT Username from users") or die("Failed to query database".mysqli_error());
 
   $row = "";
+  $rowUsers = "";
 
   if (mysqli_num_rows($result) > 0) {
     while ($row = mysqli_fetch_array($result)) {
       $datas[] = $row;
     }
   }
+
+  if (mysqli_num_rows($resultUsers) > 0) {
+    while ($rowUsers = mysqli_fetch_array($resultUsers)) {
+      $datasUsers[] = $rowUsers;
+    }
+  } 
 
   //Pad the array informationDates with enough days for the entire month
   $informationDates = array_pad($informationDates, 36, "");
@@ -39,5 +48,15 @@
       }
     }
   }
+
+  $MemberList = "";
+  $datasUserLength = count($datasUsers, 0);
+  
+
+  for ($i=0; $i < $datasUserLength; $i++) { 
+    $MemberList = $MemberList . $datasUsers[$i]['Username']."<br>";
+  }
+
+
 
 ?>

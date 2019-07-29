@@ -293,3 +293,26 @@ main {
   font-size: 30px;
   height: 300px;
 }
+
+
+
+#EventMain {
+  width: auto;
+  overflow: hidden;
+}
+
+#EventForm {
+  width: 300px;
+  float: left;
+}
+
+.Users {
+  width: 300px;
+  overflow: hidden;
+  float: left;
+}
+
+
+
+
+

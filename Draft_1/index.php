@@ -169,17 +169,14 @@
                                 <h2 style="margin-top: 15px">Username:</h2>
                                 <input type="text" name="username" id="username" value="" autocomplete="off"></input>
                             </div>
-
                             <div class="Email">
                                 <h2 style="margin-top: 15px">Email:</h2>
                                 <input type="text" name="email" id="username" value="" autocomplete="off"></input>
                             </div>
-
                             <div class="Password">
                                 <h2 style="margin-top: 15px">Password:</h2>
                                 <input type="password" name="password" id="passwordRegister" value="" autocomplete="off"></input>
                             </div>
-
                             <div class="hot-container">
                                 <p>
                                     <a class="btn" onclick="EncyrptionFun('register'); document.getElementById('registerForm').submit();">Submit</a>
@@ -199,10 +196,6 @@
 
             </div>
 
-            <!-- <div class="SubmitButton">
-                <button class="button "type="button" onclick="CheckPassword();">Submit</button>
-            </div> -->
-
         </div>
     </div>
 
@@ -217,7 +210,6 @@
 					<img src="image2.jpg"  id="aboutImage1"></img>
 					<img src="image3.jpg" id="aboutImage2"></img>
 				</div>
-
     </div>
 
 		<div class="parallax" id="parallax2"></div>
@@ -229,7 +221,7 @@
 			<div style="width: auto; overflow: hidden; float: right;">
                 <p class="TextInformation">Michael Hatzipavlis 21.7.2019</p>
             </div>
-			
+
 		</div>
 
 </body>

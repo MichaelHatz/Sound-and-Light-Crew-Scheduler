@@ -14,17 +14,19 @@
   $row = "";
   $rowUsers = "";
 
+  //Enter the query into a array $datas[]
   if (mysqli_num_rows($result) > 0) {
     while ($row = mysqli_fetch_array($result)) {
       $datas[] = $row;
     }
   }
 
+  //Enter the quey into a array $datasUsers[]
   if (mysqli_num_rows($resultUsers) > 0) {
     while ($rowUsers = mysqli_fetch_array($resultUsers)) {
       $datasUsers[] = $rowUsers;
     }
-  } 
+  }
 
   //Pad the array informationDates with enough days for the entire month
   $informationDates = array_pad($informationDates, 36, "");
@@ -51,10 +53,10 @@
 
   $MemberList = "";
   $datasUserLength = count($datasUsers, 0);
-  
 
-  for ($i=0; $i < $datasUserLength; $i++) { 
-    $MemberList = $MemberList . $datasUsers[$i]['Username']."<br>";
+
+  for ($i=0; $i < $datasUserLength; $i++) {
+    $MemberList = $MemberList . $datasUsers[$i]['Username']."<br style='line-height: 40px'>";
   }
 
 

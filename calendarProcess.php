@@ -34,6 +34,7 @@
   //Find the length of the array for the next for loop
   $datasLength = count($datas, 0);
 
+
   for ($i=0; $i < $datasLength; $i++) {
     for ($x=1; $x < 35; $x++) {
       if ($datas[$i]['users'] == $username) {

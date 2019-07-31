@@ -25,12 +25,12 @@
 	}
 
 	$sql = "INSERT INTO events (startDate,startTime,endTime,eventDescription,users)
-	VALUES ('$startDate','$startTime','$endTime','eventDescription','users')";
+	VALUES ('$startDate','$startTime','$endTime','$eventDescription','$users')";
 
 	if (mysqli_query($con, $sql)) {
        echo "New record created successfully";
     } else {
        echo "Error: " . $sql . "" . mysqli_error($con);
     }
-	
+
 ?>

@@ -3,6 +3,7 @@
 	include_once 'calendarProcess.php';
 
 
+
 	function redirect($DoDie = true) {
 		header('Location: index.php');
 		if ($DoDie)
@@ -12,6 +13,7 @@
 	if(!isset($_SESSION['user_id'])) {
 		redirect();
 	}
+
 ?>
 
 
@@ -208,7 +210,9 @@
 					Using the website
 				</div>
 				<div class="collapsedBodyParagraph" id="WebsiteBody" style="display: none">
-					Hello this is a paragraph
+					<div style="padding: 10px; text-align: justify;">
+						Firstly I would like to say that thanks for using the Sound and Light Crew Scheduling website, learning how to use the program is quite simple. Firstly on the left sidebar their is all the menus for the website ranging from the schedule, to documentation or settings. You can access these menus by clicking on them and then you can access the appropriate menus from that.
+					</div>
 				</div>
 			</div>
 			<br>
@@ -217,7 +221,9 @@
 					BioBox
 				</div>
 				<div class="collapsedBodyParagraph" id="BioBoxBody" style="display: none">
-					Hello this is a paragraph
+					<div style="padding: 10px; text-align: justify;">
+						Please Joseph, fill out the documentation... :(
+					</div>
 				</div>
 			</div>
 			<br>
@@ -270,8 +276,25 @@
 		</main>
 
 		<main id="Settings" style="display: none">
-			<h2>Members</h2>
+			<h2>Settings</h2>
+			<br>
+			<form id="SettingsForm" method="post" action="processSetting.php">
+				<h4>Username:</h4>
+				<input type="text" name="username" value="<?php echo $username ?>"></input>
 				<br>
+				<h4>Password:</h4>
+				<input type="password" name="password"></input>
+				<br>
+				<h4>Repeat Password:</h4>
+				<input type="password" name="repeatedPassword"></input>
+				<br>
+				<h4>Email:</h4>
+				<!-- Add value to the input box for the email -->
+				<input type="text" name="userEmail" value="<?php echo $_SESSION['user_email'] ?>"></input>
+				<br>
+				<br>
+				<input type="button" name="submitEvent" onclick="document.getElementById('SettingsForm').submit();" value="Submit" />
+			</form>
 		</main>
 
 		<script type="text/javascript">

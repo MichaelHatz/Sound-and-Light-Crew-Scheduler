@@ -22,10 +22,11 @@
 	if ($row['Username'] == $username && $row['Password'] == $password) {
 		$_SESSION['user_id'] = $username;
 		$_SESSION['user_class'] = $row['userClass'];
+		$_SESSION['user_email'] = $row['Email'];
 		echo "<br> Successful Login";
-		header("Location: ../Draft_1/mainPage.php");
+		header("Location: ../SoundandLightCrewScheduler/mainPage.php");
 	} else {
-		header("Location: ../Draft_1/index.php?err=1");
+		header("Location: ../SoundandLightCrewScheduler/index.php?err=1");
 	}
 
 ?>

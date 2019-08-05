@@ -134,11 +134,11 @@ html {
 }
 
 #parallax {
-	background-image: url('Image4.jpg');
+	background-image: url('indexPhotos/Image4.jpg');
 }
 
 #parallax2 {
-	background-image: url('Image5.jpg');
+	background-image: url('indexPhotos/Image5.jpg');
      height: 600px;
 }
 
@@ -180,5 +180,3 @@ html {
      background-color: #CCC;
      border-color: rgba(0,0,0,0.9);
 }
-
-

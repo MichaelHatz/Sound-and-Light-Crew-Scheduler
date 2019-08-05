@@ -211,7 +211,7 @@
 					<img src="image3.jpg" id="aboutImage2"></img>
 				</div>
     </div>
-
+    <!-- Parallax effect image -->
 		<div class="parallax" id="parallax2"></div>
 
 		<div class="copyrightBar" style="width: auto; overflow: hidden; display: block; height: 75px;">

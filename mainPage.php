@@ -38,10 +38,12 @@
 		<nav class="menu" tabindex="0">
 			<div class="smartphone-menu-trigger"></div>
 		  <header class="avatar">
+				<!-- Avatar picture and the member name -->
 				<img src="https://i.pravatar.cc/300" />
 		    <h2 style="text-decoration: underline;"><?php echo $_SESSION['user_id'] ?></h2>
 		  </header>
 			<ul>
+				<!-- Side menu with the buttons that take you to the documentation, schedule, events and more -->
 		    <a id="Schedule"><li tabindex="0" class="icon-dashboard"><span>Schedule</span></li></a>
 		    <a id="Documentation"><li tabindex="0" class="icon-customers"><span>Documentation</span></li></a>
 		    <a id="Events"><li tabindex="0" class="icon-users"><span>Events</span></li></a>
@@ -271,7 +273,7 @@
 			<div class="Users">
 				<h2>Members</h2>
 				<br>
-				<p><?php echo $MemberList ?>
+				<form id="UserAction" method="post" action="processUserClass.php"><?php echo $MemberList ?></form>
 			</div>
 		</main>
 

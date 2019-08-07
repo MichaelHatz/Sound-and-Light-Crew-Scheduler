@@ -9,7 +9,7 @@
   $informationDates = array();
 
   $result = mysqli_query($con, "SELECT startDate,endTime,startTime,eventDescription,users from events") or die("Failed to query database".mysqli_error());
-  $resultUsers = mysqli_query($con, "SELECT Username from users") or die("Failed to query database".mysqli_error());
+  $resultUsers = mysqli_query($con, "SELECT Username,userClass from users") or die("Failed to query database".mysqli_error());
 
   $row = "";
   $rowUsers = "";
@@ -21,7 +21,7 @@
     }
   }
 
-  //Enter the quey into a array $datasUsers[]
+  //Enter the query into a array $datasUsers[]
   if (mysqli_num_rows($resultUsers) > 0) {
     while ($rowUsers = mysqli_fetch_array($resultUsers)) {
       $datasUsers[] = $rowUsers;
@@ -56,10 +56,17 @@
   $datasUserLength = count($datasUsers, 0);
 
 
+
   for ($i=0; $i < $datasUserLength; $i++) {
-    $MemberList = $MemberList . $datasUsers[$i]['Username']."<input style='float: right;' type='button' value='Remove'></input>"."<input style='float:right;' type='button' </input>"."<br style='line-height: 40px'>";
+    $userClassGroup = $datasUsers[$i]['userClass'];
+    $usernames = $datasUsers[$i]['Username'];
+    $MemberList .= "<span style='display: inline;'>$usernames</span>";
+    $MemberList .= "<input style='float:right; margin-left:5px;' type='button' value='Remove' onclick='document.getElementById('UserAction').submit();'>";
+    $MemberList .= "<input style='float:right; width:80px;' type='button' value='$userClassGroup'>";
+    $MemberList .= "<br />";
+    $MemberList .= "<p>";
   }
 
 
 
-?>
+  ?>

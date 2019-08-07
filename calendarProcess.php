@@ -57,7 +57,7 @@
 
 
   for ($i=0; $i < $datasUserLength; $i++) {
-    $MemberList = $MemberList . $datasUsers[$i]['Username']."<br style='line-height: 40px'>";
+    $MemberList = $MemberList . $datasUsers[$i]['Username']."<input style='float: right;' type='button' value='Remove'></input>"."<input style='float:right;' type='button' </input>"."<br style='line-height: 40px'>";
   }
 
 

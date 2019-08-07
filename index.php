@@ -14,8 +14,11 @@
   }
 
   $errors = array (
-      1 => "Hello, world",
-      2 => "My house is on fire!"
+      1 => "Either a incorrect username and password",
+      2 => "Either a incorrect username and password",
+      3 => "Either a incorrect username and password",
+      4 => "Either a incorrect username and password",
+      5 => "Your account hasn't been confirmed, please wait or contact your adminastrator"
   );
 
   $error_id = isset($_GET['err']) ? (int)$_GET['err'] : 0;

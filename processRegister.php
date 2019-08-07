@@ -1,5 +1,5 @@
-<?php 
-	
+<?php
+
 	include 'connect.php';
 
 	$username = $_POST['username'];
@@ -13,12 +13,12 @@
 
 	//Validation for the name when making an account
 	if (!preg_match("/^[a-zA-Z ]*$/",$username)) {
-	  echo "Invalid name format, only letters and white space allowed"; 
+	  echo "Invalid name format, only letters and white space allowed";
 	}
 
 	//Validation for the email when making an account
 	if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-	  echo "Invalid email format"; 
+	  echo "Invalid email format";
 	}
 
 	// Validate password strength
@@ -33,15 +33,15 @@
 	    echo 'Strong password.';
 	}
 
-	$sql = "INSERT INTO users (Username,Email,Password)
-	VALUES ('$username','$email','$password')";
+	$sql = "INSERT INTO users (Username,Email,Password,validMember)
+	VALUES ('$username','$email','$password','0')";
 
 	if (mysqli_query($con, $sql)) {
        echo "New record created successfully";
     } else {
        echo "Error: " . $sql . "" . mysqli_error($con);
     }
- 
+
 
 
 ?>

@@ -14,6 +14,17 @@
 		redirect();
 	}
 
+  $error_id = isset($_GET['pg']) ? (int)$_GET['pg'] : 0;
+
+  if ($error_id != 0) {
+      if($error_id == 1) {
+
+			} else if($error_id == 2) {
+				
+			}
+  }
+
+
 ?>
 
 
@@ -273,7 +284,9 @@
 			<div class="Users">
 				<h2>Members</h2>
 				<br>
-				<form id="UserAction" method="post" action="processUserClass.php"><?php echo $MemberList ?></form>
+				<form id="UserAction" method="post" action="processMembers.php">
+					<?php echo $MemberList ?>
+				</form>
 			</div>
 		</main>
 

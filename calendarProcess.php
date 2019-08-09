@@ -9,7 +9,7 @@
   $informationDates = array();
 
   $result = mysqli_query($con, "SELECT startDate,endTime,startTime,eventDescription,users from events") or die("Failed to query database".mysqli_error());
-  $resultUsers = mysqli_query($con, "SELECT Username,userClass from users") or die("Failed to query database".mysqli_error());
+  $resultUsers = mysqli_query($con, "SELECT Username,userClass,validMember from users") or die("Failed to query database".mysqli_error());
 
   $row = "";
   $rowUsers = "";
@@ -54,15 +54,25 @@
 
   $MemberList = "";
   $datasUserLength = count($datasUsers, 0);
-
-
+  $userAction = "\"UserAction\"";
 
   for ($i=0; $i < $datasUserLength; $i++) {
     $userClassGroup = $datasUsers[$i]['userClass'];
     $usernames = $datasUsers[$i]['Username'];
-    $MemberList .= "<span style='display: inline;'>$usernames</span>";
-    $MemberList .= "<input style='float:right; margin-left:5px;' type='button' value='Remove' onclick='document.getElementById('UserAction').submit();'>";
-    $MemberList .= "<input style='float:right; width:80px;' type='button' value='$userClassGroup'>";
+
+    if ($datasUsers[$i]['validMember'] == 1) {
+      $MemberList .= "<span style='display:inline;'>$usernames</span>";
+    } else if ($datasUsers[$i]['validMember'] == 0) {
+      $MemberList .= "<span style='display:inline; color:#ffea92;'>$usernames</span>";
+    }
+
+    $MemberList .= "<button style='float:right; margin-left:5px;' value='$usernames' name='removeUser' onclick='document.getElementById($userAction).submit();'>Remove</button>";
+    $MemberList .= "<button style='float:right; width:80px; margin-left:5px;' value='$usernames' name='toggleClass' onclick='document.getElementById($userAction).submit();'>$userClassGroup</button>";
+    // $MemberList .= "<input style='float:right; width:80px; margin-left:5px;' type='button' value='$userClassGroup'>";
+    if ($datasUsers[$i]['validMember'] == 0) {
+      // $MemberList .= "<input style='float:right; width:150px; margin-left:5px;' type='button' value='Accept Member'>";
+      $MemberList .= "<button style='float:right; width:150px; margin-left:5px;' value='$usernames' name='acceptMember' onclick='document.getElementById($userAction).submit();'>AcceptMember</button>";
+    }
     $MemberList .= "<br />";
     $MemberList .= "<p>";
   }

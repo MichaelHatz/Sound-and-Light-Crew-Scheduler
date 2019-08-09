@@ -33,11 +33,12 @@
 	    echo 'Strong password.';
 	}
 
-	$sql = "INSERT INTO users (Username,Email,Password,validMember)
-	VALUES ('$username','$email','$password','0')";
+	$sql = "INSERT INTO users (Username,Email,Password,userClass,validMember)
+	VALUES ('$username','$email','$password','Member','0')";
 
 	if (mysqli_query($con, $sql)) {
        echo "New record created successfully";
+			 header("Location: ../SoundandLightCrewScheduler/index.php");
     } else {
        echo "Error: " . $sql . "" . mysqli_error($con);
     }

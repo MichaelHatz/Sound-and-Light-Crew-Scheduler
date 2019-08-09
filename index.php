@@ -108,6 +108,12 @@
       $("#RegisterInput").delay(800).fadeIn();
     });
 
+    $("#submitRegisterButton").click(function() {
+      console.log("Disable button");
+      $(this).prop('disabled', true);
+      break;
+    });
+
 
     //Set interval which changes the parralex background
     setInterval(function() {
@@ -177,7 +183,7 @@
             </div>
             <div class="hot-container">
               <p>
-                <a class="btn" onclick="EncyrptionFun('register'); document.getElementById('registerForm').submit();">Submit</a>
+                <a class="btn" id="submitRegisterButton" onclick="EncyrptionFun('register'); document.getElementById('registerForm').submit();">Submit</a>
               </p>
             </div>
             <div class="hot-container">

@@ -19,10 +19,12 @@
       2 => "Either a incorrect username and password",
       3 => "Either a incorrect username and password",
       4 => "Either a incorrect username and password",
-      5 => "Your account hasn't been confirmed, please wait or contact your adminastrator"
+      5 => "Your account hasn't been confirmed, please wait or contact your adminastrator",
+      6 => "SQL ERROR"
   );
 
   $error_id = isset($_GET['err']) ? (int)$_GET['err'] : 0;
+
 
   // if ($error_id != 0) {
   //     echo $errors[$error_id];
@@ -176,7 +178,7 @@
       <h1>Sound and Light Crew Scheduler</h1>
     </div>
 
-    <img src="SoundandLightCrewLogo.png" style="width: 500px; height: 500px;" >
+    <!-- <img src="SoundandLightCrewLogo.png" style="width: 500px; height: 500px;" > -->
 
     <div class="hot-container">
       <p id="paragrahStyle">
@@ -197,7 +199,7 @@
 
             <div class="hot-container">
               <p>
-                <a class="btn" onclick="EncyrptionFun('login'); document.getElementById('loginForm').submit();">Submit</a>
+                <a class="btn" onclick="document.getElementById('loginForm').submit();">Submit</a>
               </p>
             </div>
             <div class="hot-container">
@@ -223,7 +225,7 @@
             </div>
             <div class="hot-container">
               <p>
-                <a class="btn" id="submitRegisterButton" onclick="EncyrptionFun('register'); document.getElementById('registerForm').submit();">Submit</a>
+                <a class="btn" id="submitRegisterButton" onclick="document.getElementById('registerForm').submit();">Submit</a>
               </p>
             </div>
             <div class="hot-container">

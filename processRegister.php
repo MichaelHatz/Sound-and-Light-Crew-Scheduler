@@ -1,15 +1,16 @@
 <?php
 
 	include 'connect.php';
+	include 'Encryption.php';
 
 	$username = $_POST['username'];
 	$email = $_POST['email'];
-	$password = $_POST['password'];
+	$passwordNotHashed = $_POST['password'];
 
+	$password = hash_sha1($passwordNotHashed);
 
 
 	$username = stripcslashes($username);
-	$password = stripcslashes($password);
 
 	//Validation for the name when making an account
 	if (!preg_match("/^[a-zA-Z ]*$/",$username)) {
@@ -40,7 +41,7 @@
        echo "New record created successfully";
 			 header("Location: ../SoundandLightCrewScheduler/index.php");
     } else {
-       echo "Error: " . $sql . "" . mysqli_error($con);
+       header("Location: ../SoundandLightCrewScheduler/index.php?err=6");
     }
 
 

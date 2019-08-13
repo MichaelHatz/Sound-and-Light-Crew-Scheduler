@@ -311,3 +311,10 @@ main {
   overflow: hidden;
   float: left;
 }
+
+.errorBox {
+  color: red;
+  text-align: center;
+  font-size: 15px;
+  display: inline;
+}

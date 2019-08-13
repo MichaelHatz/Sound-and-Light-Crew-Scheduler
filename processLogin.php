@@ -1,17 +1,14 @@
 <?php
 	session_start();
 	include 'connect.php';
+	include 'Encryption.php';
 
 	$username = $_POST['username'];
-	$password = $_POST['password'];
+	$passwordNotHashed = $_POST['password'];
+
+	$password = hash_sha1($passwordNotHashed);
 
 	$username = stripcslashes($username);
-	$password = stripcslashes($password);
-	// $username = mysql_real_escape_string($username, $con);
-	// $password = mysql_real_escape_string($password, $con);
-
-	// $sql = "SELECT * FROM users;";
-	// $result = mysqli_query($con, $sql);
 
 	$result = mysqli_query($con, "SELECT * from users where Username = '$username' and Password = '$password'") or die("Failed to query database".mysqli_error());
 

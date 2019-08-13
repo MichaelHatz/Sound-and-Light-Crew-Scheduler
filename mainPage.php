@@ -10,19 +10,23 @@
 				die();
 	}
 
+	//If user isn't logged in redirect towards the home page
 	if(!isset($_SESSION['user_id'])) {
 		redirect();
 	}
 
+	$errors = array (
+			//First error is for nothing
+      0 => "",
+			//Following errors are for event information
+      1 => "Incorrect event information, information is highlighted in red",
+			4 => "Please have event attendies that are part of the Sound and Light Crew",
+			//Following errors are for settings information
+			2 => "Passwords entered are not the same",
+			3 => "Password entered is the same as original password"
+  );
+
   $error_id = isset($_GET['pg']) ? (int)$_GET['pg'] : 0;
-
-  if ($error_id != 0) {
-      if($error_id == 1) {
-
-			} else if($error_id == 2) {
-				
-			}
-  }
 
 
 ?>
@@ -42,6 +46,7 @@
 
 
 	<head>
+		<!-- Title at the top of the webpage -->
 		<title>Sound and Light Crew Scheduling</title>
 	</head>
 	<body>
@@ -276,6 +281,7 @@
 				<br>
 				<h4>People attending the event:</h4>
 				<input type="text" name="users"></input>
+				<p id="errorBoxEvent" class="errorBox"></p>
 				<br>
 				<br>
 				<input type="button" name="submitEvent" onclick="document.getElementById('EventForm').submit();" value="Submit" />

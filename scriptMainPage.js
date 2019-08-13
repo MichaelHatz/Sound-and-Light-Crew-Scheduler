@@ -1,8 +1,32 @@
 var timeInterval = 5;
 
+var parts = window.location.search.substr(1).split("&");
+var $_GET = {};
+for (var i = 0; i < parts.length; i++) {
+    var temp = parts[i].split("=");
+    $_GET[decodeURIComponent(temp[0])] = decodeURIComponent(temp[1]);
+}
+
+var errorCode = ($_GET['err']);
+
+
 
 
 $(document).ready(function() {
+
+  if (errorCode == 1) {
+    $("#EventMain").show();
+    $("#CalendarMain").hide();
+    $("#DocumentationMain").hide();
+    $("#Settings").hide();
+  } else if (errorCode == 2 || errorCode == 3) {
+    $("#Settings").show();
+    $("#CalendarMain").hide();
+    $("#DocumentationMain").hide();
+    $("#EventMain").hide();
+  }
+
+
   $("#Schedule").click(function() {
       $("#CalendarMain").fadeIn();
       $("#DocumentationMain").fadeOut();

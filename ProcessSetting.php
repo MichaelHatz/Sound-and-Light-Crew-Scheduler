@@ -21,7 +21,10 @@
 	    }
 	}
 
-  if ($password == $repeatedPassword) {
+  echo $password . "<br>";
+  echo $repeatedPassword . "<br>";
+
+  if ($password === $repeatedPassword) {
     echo "Passwords do match up";
   } else {
     echo "Passwords don't match up";

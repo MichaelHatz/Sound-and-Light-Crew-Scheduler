@@ -14,6 +14,7 @@
   }
 
   $errors = array (
+      0 => "",
       1 => "Either a incorrect username and password",
       2 => "Either a incorrect username and password",
       3 => "Either a incorrect username and password",
@@ -23,9 +24,9 @@
 
   $error_id = isset($_GET['err']) ? (int)$_GET['err'] : 0;
 
-  if ($error_id != 0) {
-      echo $errors[$error_id];
-  }
+  // if ($error_id != 0) {
+  //     echo $errors[$error_id];
+  // }
 ?>
 
 <!DOCTYPE html>
@@ -48,11 +49,46 @@
   //The array needs to have the amount of people regired to make the person the amount needed
   var Image_slide = new Array("indexPhotos/Image1.jpg", "indexPhotos/Image2.jpg", "indexPhotos/Image3.jpg", "indexPhotos/Image4.jpg", "indexPhotos/Image5.jpg"); // image container
   var Img_Length = Image_slide.length; // container length - 1
-  var Img_current = 0
+  var Img_current = 0;
   var timeInterval = 5; //In seconds
+  var errorCode = "<?php echo $error_id; ?>";
+
+
+
+
+
 
   //This checks for the document and if the login button has been pressed and opens the appropriate menu
   $(document).ready(function() {
+
+
+
+    if (errorCode == 1) {
+
+    } else if (errorCode == 2) {
+      $("#LoginBtn").hide();
+      $("#RegisterInput").hide();
+      $("#paragrahStyle").show();
+      $("#loginBox").show();
+
+    } else if (errorCode == 3) {
+      $("#LoginBtn").hide();
+      $("#RegisterInput").hide();
+      $("#paragrahStyle").hide();
+      $("#loginBox").show();
+    } else if (errorCode == 4) {
+      $("#LoginBtn").hide();
+      $("#RegisterInput").hide();
+      $("#paragrahStyle").hide();
+      $("#loginBox").show();
+    } else if (errorCode == 5) {
+      $("#LoginBtn").hide();
+      $("#RegisterInput").hide();
+      $("#paragrahStyle").hide();
+      $("#loginBox").show();
+
+    }
+
     $("#LoginBtn").click(function() {
       console.log("Login button click function");
       $("#LoginBtn").fadeOut();
@@ -87,7 +123,7 @@
       $("#paragrahStyle")
         .delay(500)
         .queue(function(next) {
-          $("#paragrahStyle").css("padding-top", "200px");
+          $("#paragrahStyle").css("padding-top", "15px");
           next();
         });
       $("#LoginBtn").delay(800).fadeIn();
@@ -101,7 +137,7 @@
       $("#paragrahStyle")
         .delay(500)
         .queue(function(next) {
-          $("#paragrahStyle").css("padding-top", "200px");
+          $("#paragrahStyle").css("padding-top", "15px");
           next();
         });
       $("#LoginBtn").delay(800).fadeIn();
@@ -140,8 +176,10 @@
       <h1>Sound and Light Crew Scheduler</h1>
     </div>
 
+    <img src="SoundandLightCrewLogo.png" style="width: 500px; height: 500px;" >
+
     <div class="hot-container">
-      <p style="padding-top: 200px" id="paragrahStyle">
+      <p id="paragrahStyle">
         <a id="LoginBtn" class="btn">Login</a>
         <div hidden class="LoginBox" id="loginBox">
           <form id="loginForm" method="post" action="processLogin.php">
@@ -154,6 +192,8 @@
               <h2 style="margin-top: 15px">Password:</h2>
               <input type="password" name="password" id="passwordLogin" value="" autocomplete="off"></input>
             </div>
+
+            <p id="errorBox" class="errorBox"><?php echo $errors[$error_id]; ?></p>
 
             <div class="hot-container">
               <p>
@@ -203,9 +243,7 @@
   <div class="aboutPage">
     <h3>ABOUT</h3>
     <p style="padding-left: 20%; padding-right: 20%; text-align: center">
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-      dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      Here at the Sound and Light Crew, we aim to provide Balwyn High School students an insight into the intricacies of the Audio-Visual field. Students who are part of the Sound and Light Crew will leave high school with experience working with stage lighting, sound design, and DSLR cameras. The crew provides a positive working enviroment, and is a great opportunity for Balwyn High students with an interest in the AV field to get some hands-on experience.
     </p>
     <div class="aboutPageImages">
       <!-- Setting the defualt images for the background parralex effects -->

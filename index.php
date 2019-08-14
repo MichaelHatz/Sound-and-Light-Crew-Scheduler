@@ -1,25 +1,18 @@
 <?php
-  //Start the session so that I can access the session variables
   session_start();
-
-  //Include the connect.php, which connect the index file the database
   include_once 'connect.php';
-  //Include the encryption.php script which allows both the register button and login button to call the encrypting function
   include_once 'Encryption.php';
 
-  //Redirect function, if this cannot be done it kills the script
   function redirect($DoDie = true) {
     header('Location: mainPage.php');
     if ($DoDie)
         die();
   }
 
-  //If you are already signed in then redirect to the main screen, isset checks wither the user is null
   if(isset($_SESSION['user_id'])) {
     redirect();
   }
 
-  //This is the errors that the will appear based on the number
   $errors = array (
       0 => "",
       1 => "Either a incorrect username and password",
@@ -30,9 +23,12 @@
       6 => "SQL ERROR"
   );
 
-  //Error id is abtained by using the GET feature in PHP, which is in the URL under 'err' tag
   $error_id = isset($_GET['err']) ? (int)$_GET['err'] : 0;
 
+
+  // if ($error_id != 0) {
+  //     echo $errors[$error_id];
+  // }
 ?>
 
 <!DOCTYPE html>
@@ -68,7 +64,7 @@
   $(document).ready(function() {
 
 
-    //Based on the error code show the required menu, for example if their is a login error then show the login box on refresh
+
     if (errorCode == 1) {
 
     } else if (errorCode == 2) {
@@ -95,7 +91,6 @@
 
     }
 
-    //When the login button is pressed show the login box
     $("#LoginBtn").click(function() {
       console.log("Login button click function");
       $("#LoginBtn").fadeOut();
@@ -109,7 +104,7 @@
       $("#loginBox").delay(800).fadeIn();
     });
 
-    //When the register button is pressed the appropriate menus are opened and closed
+    //When the register button is pressed the appropriate menu opens
     $("#RegisterInput").click(function() {
       console.log("Register button click function")
       $("#LoginBtn").fadeOut();
@@ -123,7 +118,6 @@
       $("#registerBox").delay(800).fadeIn();
     });
 
-    //When the return button is clicked the appropriate menus are opened and closed
     $("#returnButtonLogBox").click(function() {
       console.log("Return button click function");
       $("#paragrahStyle")
@@ -138,7 +132,6 @@
       $("#RegisterInput").delay(800).fadeIn();
     });
 
-    //When the return button for registration box is clicked the appropriate menus are opened and closed
     $("#returnButtonRegBox").click(function() {
       console.log("Return button click function");
       $("#paragrahStyle")
@@ -153,7 +146,6 @@
       $("#RegisterInput").delay(800).fadeIn();
     });
 
-    //When the submit button on the register button is pressed, disable it so that it can't be clicked multiple times
     $("#submitRegisterButton").click(function() {
       console.log("Disable button");
       $(this).prop('disabled', true);

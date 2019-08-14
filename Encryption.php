@@ -1,49 +1,52 @@
 <?php
-
-//This preProcess function extends the input so that is enough bits long
+/*
+Note 1: All variables are unsigned 32 bits and wrap modulo 232 when calculating, except
+        ml the message length which is 64 bits, and
+        hh the message digest which is 160 bits.
+Note 2: All constants in this pseudo code are in big endian.
+        Within each word, the most significant byte is stored in the leftmost byte position
+*/
+// Initialize variables:
 function preProcess($message){
-  //strlen returns the length of the string, storing it as the originalsize variable
-  $originalSize = strlen($message) * 8;
-  //chr funciton adds an ascii character to the end of the message
-  $message .= chr(128);
-  //Make sure that the length of the message, plus 8, modulo by 64 is not identical to 0, and if so add a null ascii value to the end
-  while (((strlen($message) + 8) % 64) !== 0) {
-      $message .= chr(0);
-  }
-  //Split the string into a array, then split it and format it with '%064b' then set it into $bin
-  foreach (str_split(sprintf('%064b', $originalSize), 8) as $bin) {
-      //add a assci character with the $bin value onto the end
-      $message .= chr(bindec($bin));
-  }
-  //Return the character to the function
-  return $message;
+    /*
+    Pre-processing:
+    append the bit '1' to the message i.e. by adding 0x80 if characters are 8 bits.
+    append 0 ≤ k < 512 bits '0', thus the resulting message length (in bits)
+       is congruent to 448 (mod 512)
+    append ml, in a 64-bit big-endian integer. So now the message length is a multiple of 512 bits.
+    */
+        $originalSize = strlen($message) * 8;
+        $message .= chr(128);
+        while (((strlen($message) + 8) % 64) !== 0) {
+            $message .= chr(0);
+        }
+        foreach (str_split(sprintf('%064b', $originalSize), 8) as $bin) {
+            $message .= chr(bindec($bin));
+        }
+        return $message;
 }
-
-//This function is to add the ability to rotate an array, which is not implimented in php, but this function allows it to happen
 function rotl($x, $n) {
   return ($x << $n) | ($x >> (32 - $n));
 }
-
 function SHAfunction($step, $b, $c, $d)
 {
-  switch ($step) {
-    case 0;
-        return ($b & $c) ^ (~$b & $d);
-    case 1;
-    case 3;
-        return $b ^ $c ^ $d;
-    case 2;
-        return ($b & $c) ^ ($b & $d) ^ ($c & $d);
-  }
+    switch ($step) {
+        case 0;
+            return ($b & $c) ^ (~$b & $d);
+        case 1;
+        case 3;
+            return $b ^ $c ^ $d;
+        case 2;
+            return ($b & $c) ^ ($b & $d) ^ ($c & $d);
+    }
 }
 function hash_sha1($input) {
-    //Initialize variables
     $h0 = 0x67452301;
     $h1 = 0xEFCDAB89;
     $h2 = 0x98BADCFE;
     $h3 = 0x10325476;
     $h4 = 0xC3D2E1F0;
-    $K = [0x5a827999, 0x5a827999, 0x8f1bbcdc, 0xca62c1d6];
+    $K = [0x5a827999, 0x6ed9eba1, 0x8f1bbcdc, 0xca62c1d6];
     $message = preProcess($input);
     // Process the message in successive 512-bit chunks:
     // break message into 512-bit chunks

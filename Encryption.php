@@ -88,7 +88,6 @@ function hash_sha1($input) {
         $h3 = ($h3 + $d) & 0xffffffff;
         $h4 = ($h4 + $e) & 0xffffffff;
     }
-    echo "CALLED ENCRYPTION";
     return sprintf('%08x%08x%08x%08x%08x', $h0, $h1, $h2, $h3, $h4);;
 }
 // echo sha1('password'), PHP_EOL;

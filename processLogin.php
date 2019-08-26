@@ -16,27 +16,29 @@
 
 	$row = mysqli_fetch_array($result);
 
+	echo $passwordNotHashed;
+	echo "<br>";
 	echo $password;
 
-	if ($row['Username'] == $username && $row['Password'] == $password && $row['validMember'] == "1") {
-		$_SESSION['user_id'] = $username;
-		$_SESSION['user_class'] = $row['userClass'];
-		$_SESSION['user_email'] = $row['Email'];
-		echo "<br> Successful Login";
-		header("Location: ../SoundandLightCrewScheduler/mainPage.php"); //Redirect to the main page if it is valid
-	} else {
-		if ($row['Username'] != $username && $row['Password'] != $password && $row['validMember'] == "0") { //Equal if username, password, and valid member isn't true
-			header("Location: ../SoundandLightCrewScheduler/index.php?err=1");
-		} else if ($row['Username'] != $username && $row['Password'] != $password) { //Equal if username and password isn't true
-			header("Location: ../SoundandLightCrewScheduler/index.php?err=2");
-		} else if ($row['Username'] != $username) { //Equal if the username isn't true
-			header("Location: ../SoundandLightCrewScheduler/index.php?err=3");
-		} else if ($row['Password'] != $password) { //Equal if the password isn't true
-			header("Location: ../SoundandLightCrewScheduler/index.php?err=4");
-		} else if ($row['validMember'] == "0") {
-			header("Location: ../SoundandLightCrewScheduler/index.php?err=5");
-		}
-
-	}
+	// if ($row['Username'] == $username && $row['Password'] == $password && $row['validMember'] == "1") {
+	// 	$_SESSION['user_id'] = $username;
+	// 	$_SESSION['user_class'] = $row['userClass'];
+	// 	$_SESSION['user_email'] = $row['Email'];
+	// 	echo "<br> Successful Login";
+	// 	header("Location: ../SoundandLightCrewScheduler/mainPage.php"); //Redirect to the main page if it is valid
+	// } else {
+	// 	if ($row['Username'] != $username && $row['Password'] != $password && $row['validMember'] == "0") { //Equal if username, password, and valid member isn't true
+	// 		header("Location: ../SoundandLightCrewScheduler/index.php?err=1");
+	// 	} else if ($row['Username'] != $username && $row['Password'] != $password) { //Equal if username and password isn't true
+	// 		header("Location: ../SoundandLightCrewScheduler/index.php?err=2");
+	// 	} else if ($row['Username'] != $username) { //Equal if the username isn't true
+	// 		header("Location: ../SoundandLightCrewScheduler/index.php?err=3");
+	// 	} else if ($row['Password'] != $password) { //Equal if the password isn't true
+	// 		header("Location: ../SoundandLightCrewScheduler/index.php?err=4");
+	// 	} else if ($row['validMember'] == "0") {
+	// 		header("Location: ../SoundandLightCrewScheduler/index.php?err=5");
+	// 	}
+	//
+	// }
 
 ?>

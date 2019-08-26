@@ -43,7 +43,7 @@
 			header("Location: ../SoundandLightCrewScheduler/index.php?err=4");
 		}
 	}
-
+	
 
 
 	$sql = "INSERT INTO events (startDate,startTime,endTime,eventDescription,users)

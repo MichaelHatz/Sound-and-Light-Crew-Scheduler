@@ -16,6 +16,8 @@
 
 	$row = mysqli_fetch_array($result);
 
+	echo $password;
+
 	if ($row['Username'] == $username && $row['Password'] == $password && $row['validMember'] == "1") {
 		$_SESSION['user_id'] = $username;
 		$_SESSION['user_class'] = $row['userClass'];

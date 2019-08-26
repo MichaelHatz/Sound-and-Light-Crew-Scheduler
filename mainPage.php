@@ -3,7 +3,7 @@
 	include_once 'calendarProcess.php';
 
 
-
+	//This is the function for redirecting to the index page
 	function redirect($DoDie = true) {
 		header('Location: index.php');
 		if ($DoDie)
@@ -331,7 +331,7 @@
 
 			}
 
-			
+
 
 		</script>
 

@@ -74,12 +74,25 @@ function hash_sha1($input) {
             $b = $a;
             $a = $temp;
         }
+
+        echo $a;
+        echo $b;
+        echo $c;
+        echo $d;
+        echo $e;
+
         // Add this chunk's hash to result so far:
         $h0 = ($h0 + $a) & 0xffffffff;
         $h1 = ($h1 + $b) & 0xffffffff;
         $h2 = ($h2 + $c) & 0xffffffff;
         $h3 = ($h3 + $d) & 0xffffffff;
         $h4 = ($h4 + $e) & 0xffffffff;
+
+        // echo $h0;
+        // echo $h1;
+        // echo $h2;
+        // echo $h3;
+        // echo $h4;
     }
     return sprintf('%08x%08x%08x%08x%08x', $h0, $h1, $h2, $h3, $h4);;
 }

@@ -75,7 +75,11 @@
 		    <div class="toolbar">
 		      <div class="toggle">
 		      </div>
-		      <div class="current-month">July 2019</div>
+					<div style="width: 40%;">
+						<button class="MonthDecrease">Previous Month</button>
+						<div class="current-month">July 2019</div>
+						<button class="MonthIncrease" Onclick="" >Next Month</button>
+					</div>
 		      <div class="search-input">
 		        <input type="text" value="What are you looking for?">
 		        <i class="fa fa-search"></i>
@@ -219,7 +223,7 @@
 						Hello. Here at the Sound and Light Crew, we aim to provide Balwyn High School students an insight into the intricacies of the Audio-Visual field. Students who are part of the Sound and Light Crew will leave high school with experience working with stage lighting, sound design, and DSLR cameras. The crew provides a positive working enviroment, and is a great opportunity for Balwyn High students with an interest in the AV field to get some hands-on experience.
 					</div>
 					<br style="line-height: 30px;">
-					- Rein Kivivali, Audio Visual Technition, Head of Sound and Light Crew. 2019
+					- Rein Kivivali, Audio Visual Technition, Head of Sound and Light Crew.
 				</div>
 			</div>
 			<br>
@@ -229,7 +233,7 @@
 				</div>
 				<div class="collapsedBodyParagraph" id="WebsiteBody" style="display: none">
 					<div style="padding: 10px; text-align: justify;">
-						Firstly I would like to say that thanks for using the Sound and Light Crew Scheduling website, learning how to use the program is quite simple. Firstly on the left sidebar their is all the menus for the website ranging from the schedule, to documentation or settings. You can access these menus by clicking on them and then you can access the appropriate menus from that.
+						Firstly I would like to thank you for using the Sound and Light Crew Scheduling website, learning how to use the program is quite simple. Firstly on the left sidebar, you will find the menus for the website ranging from the schedule, to documentation and settings. You can access these menus by clicking on them and then you can access the appropriate menus from that. On the right hand side you will find further information relating to the selected field.
 					</div>
 				</div>
 			</div>
@@ -240,7 +244,7 @@
 				</div>
 				<div class="collapsedBodyParagraph" id="BioBoxBody" style="display: none">
 					<div style="padding: 10px; text-align: justify;">
-						Please Joseph, fill out the documentation... :(
+
 					</div>
 				</div>
 			</div>
@@ -251,11 +255,11 @@
 				</div>
 				<div class="collapsedBodyParagraph" id="CrewCallsBody" style="display: none">
 					<div style="padding: 10px; text-align: justify;">
-						The Sound and Light crew takes their crew calls very seriously. If a crew member does not accept a crew call they will be brought into question. If a crew member pressed "tentative" on a crew call they will face capitalk punishment.
+						The Sound and Light crew take their crew calls very seriously. Information regarding Crew Calls can be found on the School email, once accepted information will be displayed on the Scheduler. A crew member can decline a crew call but must reason for doing so. If a crew member does not give an appropriate reason, they may be interviewed further. When responding to the crew calls, please don't press "tentative".
 					</div>
 					<br style="line-height: 30px;">
 					<div style="padding: 10px; text-align: justify;">
-						- Joseph Seery, Some one in the Sound Light Crew, The orange kid. 2019
+						- Joseph Seery, Sound and Light Crew Captain.
 					</div>
 				</div>
 			</div>

@@ -81,6 +81,7 @@ function hash_sha1($input) {
         echo $d;
         echo $e;
 
+
         // Add this chunk's hash to result so far:
         $h0 = ($h0 + $a) & 0xffffffff;
         $h1 = ($h1 + $b) & 0xffffffff;

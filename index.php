@@ -253,7 +253,7 @@
   <div class="aboutPage">
     <h3>ABOUT</h3>
     <p style="padding-left: 20%; padding-right: 20%; text-align: center">
-      Here at the Sound and Light Crew, we aim to provide Balwyn High School students an insight into the intricacies of the Audio-Visual field. Students who are part of the Sound and Light Crew will leave high school with experience working with stage lighting, sound design, and DSLR cameras. The crew provides a positive working enviroment, and is a great opportunity for Balwyn High students with an interest in the AV field to get some hands-on experience.
+      Here at the Sound and Light Crew, we aim to provide Balwyn High School students an insight into the intricacies of the Audio-Visual field. Students who are part of the Sound and Light Crew will leave high school with experience working with stage lighting, sound design and DSLR cameras. The crew provides a positive working environment and is a great opportunity for Balwyn High students with an interest in the AV field to get some hands-on experience.
     </p>
     <div class="aboutPageImages">
       <!-- Setting the defualt images for the background parralex effects -->

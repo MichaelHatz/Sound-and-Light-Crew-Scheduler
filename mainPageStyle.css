@@ -318,3 +318,19 @@ main {
   font-size: 15px;
   display: inline;
 }
+
+.current-month {
+  text-align: center;
+  display: inline-block;
+  width: 50%;
+}
+
+.MonthDecrease {
+  float: left;
+  width: 25%;
+}
+
+.MonthIncrease {
+  float: right;
+  width: 25%;
+}

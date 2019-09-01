@@ -40,10 +40,10 @@
 	//Checking if the text box that features users features in the database
 	for ($i=0; $i < $datasUserLength; $i++) {
 		if ($users = $datasUsers[$i]['Username']) {
-			header("Location: ../SoundandLightCrewScheduler/index.php?err=4");
+			header("Location: index.php?err=4");
 		}
 	}
-	
+
 
 
 	$sql = "INSERT INTO events (startDate,startTime,endTime,eventDescription,users)

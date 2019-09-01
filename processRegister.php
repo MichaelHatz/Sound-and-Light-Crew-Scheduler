@@ -39,9 +39,9 @@
 
 	if (mysqli_query($con, $sql)) {
        echo "New record created successfully";
-			 header("Location: ../SoundandLightCrewScheduler/index.php");
+			 header("Location: index.php");
     } else {
-       header("Location: ../SoundandLightCrewScheduler/index.php?err=6");
+       header("Location: index.php?err=6");
     }
 
 

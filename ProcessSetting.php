@@ -27,7 +27,7 @@
   if ($password === $repeatedPassword) {
     echo "Passwords do match up";
   } else {
-    header("Location: ../SoundandLightCrewScheduler/mainpage.php?err=2");
+    header("Location: mainpage.php?err=2");
   }
 
   $sql = "INSERT INTO users (username,Password,Email)

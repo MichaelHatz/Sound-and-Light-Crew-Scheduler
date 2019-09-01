@@ -12,7 +12,7 @@
 	//       $datas[] = $row;
 	//     }
 	// }
-  
+
   if (mysqli_num_rows($result) > 0) {
       while ($row = mysqli_fetch_array($result)) {
         $datas[] = $row;
@@ -34,7 +34,7 @@
       mysqli_query($con, "UPDATE users SET userClass='Member' WHERE id=$usernameClass");
       echo "Set use to member";
     }
-    header("Location: ../SoundandLightCrewScheduler/mainPage.php");
+    header("Location: mainPage.php");
   }
 
   if (isset($_POST['removeUser'])) {
@@ -53,7 +53,7 @@
     echo $usernameValidMember."<br>";
 
     mysqli_query($con, "UPDATE users SET validMember=1 Where id=$usernameValidMember");
-    header("Location: ../SoundandLightCrewScheduler/mainPage.php?pg=2");
+    header("Location: mainPage.php?pg=2");
   }
 
 

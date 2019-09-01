@@ -8,6 +8,19 @@
   $datas = array();
   $informationDates = array();
 
+  //Catch the ajax variables if sent
+  echo "Hello";
+  if (isset($_POST['increaseMonth'])) {
+    $monthChange = $_POST['increaseMonth'];
+    echo $monthChange;
+  } else {
+    $monthChange = 0;
+  }
+
+  echo $monthChange;
+
+
+
 
   //Collect the results from the database through a query
   $result = mysqli_query($con, "SELECT startDate,endTime,startTime,eventDescription,users from events") or die("Failed to query database".mysqli_error());

@@ -26,18 +26,21 @@ $(document).ready(function() {
     $("#EventMain").hide();
   }
 
-  $('#submit').click(function() {
+  $('#MonthUp').click(function() {
     $.ajax({
         url: 'calendarProcess.php',
         type: 'POST',
         data: {
-            email: 'email@example.com',
-            message: 'hello world!'
+            increaseMonth: 1
         },
         success: function(msg) {
-            alert('Email Sent');
+            
         }
       });
+  });
+
+  $('#MonthDown').click(function() {
+
   });
 
 

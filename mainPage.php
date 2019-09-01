@@ -76,9 +76,9 @@
 		      <div class="toggle">
 		      </div>
 					<div style="width: 40%;">
-						<button class="MonthDecrease">Previous Month</button>
+						<button class="MonthDecrease" id="MonthDown">Previous Month</button>
 						<div class="current-month">July 2019</div>
-						<button class="MonthIncrease" Onclick="" >Next Month</button>
+						<button class="MonthIncrease" id="MonthUp" Onclick="" >Next Month</button>
 					</div>
 		      <div class="search-input">
 		        <input type="text" value="What are you looking for?">

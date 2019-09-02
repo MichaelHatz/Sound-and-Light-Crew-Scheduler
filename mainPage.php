@@ -27,8 +27,6 @@
   );
 
   $error_id = isset($_GET['pg']) ? (int)$_GET['pg'] : 0;
-
-	print_r($informationDates);
 ?>
 
 
@@ -119,94 +117,94 @@
 		      </div>
 		      <div class="calendar__week">
 		        <div class="calendar__day day">
-		        	8<br class="breakNumber"><div class="event"> <?php echo $informationDates[8]; ?> </div>
+		        	8<br class="breakNumber"><div class="event" id="event8"> <?php echo $informationDates[8]; ?> </div>
 		        </div>
 		        <div class="calendar__day day">
-		        	9<br class="breakNumber"><div class="event"> <?php echo $informationDates[9]; ?> </div>
+		        	9<br class="breakNumber"><div class="event" id="event9"> <?php echo $informationDates[9]; ?> </div>
 		        </div>
 		        <div class="calendar__day day">
-		        	10<br class="breakNumber"><div class="event"> <?php echo $informationDates[10]; ?> </div>
+		        	10<br class="breakNumber"><div class="event" id="event10"> <?php echo $informationDates[10]; ?> </div>
 		        </div>
 		        <div class="calendar__day day">
-		        	11<br class="breakNumber"><div class="event"> <?php echo $informationDates[11]; ?> </div>
+		        	11<br class="breakNumber"><div class="event" id="event11"> <?php echo $informationDates[11]; ?> </div>
 		        </div>
 		        <div class="calendar__day day">
-		        	12<br class="breakNumber"><div class="event"> <?php echo $informationDates[12]; ?> </div>
+		        	12<br class="breakNumber"><div class="event" id="event12"> <?php echo $informationDates[12]; ?> </div>
 		        </div>
 		        <div class="calendar__day day">
-		        	13<br class="breakNumber"><div class="event"> <?php echo $informationDates[13]; ?> </div>
+		        	13<br class="breakNumber"><div class="event" id="event13"> <?php echo $informationDates[13]; ?> </div>
 		        </div>
 		        <div class="calendar__day day">
-		        	14<br class="breakNumber"><div class="event"> <?php echo $informationDates[14]; ?> </div>
-		        </div>
-		      </div>
-		      <div class="calendar__week">
-		        <div class="calendar__day day">
-		        	15<br class="breakNumber"><div class="event"> <?php echo $informationDates[15]; ?> </div>
-		        </div>
-		        <div class="calendar__day day">
-		        	16<br class="breakNumber"><div class="event"> <?php echo $informationDates[16]; ?> </div>
-		        </div>
-		        <div class="calendar__day day">
-		        	17<br class="breakNumber"><div class="event"> <?php echo $informationDates[17]; ?> </div>
-		        </div>
-		        <div class="calendar__day day">
-		        	18<br class="breakNumber"><div class="event"> <?php echo $informationDates[18]; ?> </div>
-		        </div>
-		        <div class="calendar__day day">
-		        	19<br class="breakNumber"><div class="event"> <?php echo $informationDates[19]; ?> </div>
-		        </div>
-		        <div class="calendar__day day">
-		        	20<br class="breakNumber"><div class="event"> <?php echo $informationDates[20]; ?> </div>
-		        </div>
-		        <div class="calendar__day day">
-		        	21<br class="breakNumber"><div class="event"> <?php echo $informationDates[21]; ?> </div>
+		        	14<br class="breakNumber"><div class="event" id="event14"> <?php echo $informationDates[14]; ?> </div>
 		        </div>
 		      </div>
 		      <div class="calendar__week">
 		        <div class="calendar__day day">
-		        	22<br class="breakNumber"><div class="event"> <?php echo $informationDates[22]; ?> </div>
+		        	15<br class="breakNumber"><div class="event" id="event15"> <?php echo $informationDates[15]; ?> </div>
 		        </div>
 		        <div class="calendar__day day">
-		        	23<br class="breakNumber"><div class="event"> <?php echo $informationDates[23]; ?> </div>
+		        	16<br class="breakNumber"><div class="event" id="event16"> <?php echo $informationDates[16]; ?> </div>
 		        </div>
 		        <div class="calendar__day day">
-		        	24<br class="breakNumber"><div class="event"> <?php echo $informationDates[24]; ?> </div>
+		        	17<br class="breakNumber"><div class="event" id="event17"> <?php echo $informationDates[17]; ?> </div>
 		        </div>
 		        <div class="calendar__day day">
-		        	25<br class="breakNumber"><div class="event"> <?php echo $informationDates[25]; ?> </div>
+		        	18<br class="breakNumber"><div class="event" id="event18"> <?php echo $informationDates[18]; ?> </div>
 		        </div>
 		        <div class="calendar__day day">
-		        	26<br class="breakNumber"><div class="event"> <?php echo $informationDates[26]; ?> </div>
+		        	19<br class="breakNumber"><div class="event" id="event19"> <?php echo $informationDates[19]; ?> </div>
 		        </div>
 		        <div class="calendar__day day">
-		        	27<br class="breakNumber"><div class="event"> <?php echo $informationDates[27]; ?> </div>
+		        	20<br class="breakNumber"><div class="event" id="event20"> <?php echo $informationDates[20]; ?> </div>
 		        </div>
 		        <div class="calendar__day day">
-		        	28<br class="breakNumber"><div class="event"> <?php echo $informationDates[28]; ?> </div>
+		        	21<br class="breakNumber"><div class="event" id="event21"> <?php echo $informationDates[21]; ?> </div>
 		        </div>
 		      </div>
 		      <div class="calendar__week">
 		        <div class="calendar__day day">
-		        	29<br class="breakNumber"><div class="event"> <?php echo $informationDates[29]; ?> </div>
+		        	22<br class="breakNumber"><div class="event" id="event22"> <?php echo $informationDates[22]; ?> </div>
 		        </div>
 		        <div class="calendar__day day">
-		        	30<br class="breakNumber"><div class="event"> <?php echo $informationDates[30]; ?> </div>
+		        	23<br class="breakNumber"><div class="event" id="event23"> <?php echo $informationDates[23]; ?> </div>
 		        </div>
 		        <div class="calendar__day day">
-		        	31<br class="breakNumber"><div class="event"> <?php echo $informationDates[31]; ?> </div>
+		        	24<br class="breakNumber"><div class="event" id="event24"> <?php echo $informationDates[24]; ?> </div>
 		        </div>
 		        <div class="calendar__day day">
-		        	1<br class="breakNumber"><div class="event"> <?php echo $informationDates[32]; ?> </div>
+		        	25<br class="breakNumber"><div class="event" id="event25"> <?php echo $informationDates[25]; ?> </div>
 		        </div>
 		        <div class="calendar__day day">
-		        	2<br class="breakNumber"><div class="event"> <?php echo $informationDates[33]; ?> </div>
+		        	26<br class="breakNumber"><div class="event" id="event26"> <?php echo $informationDates[26]; ?> </div>
 		        </div>
 		        <div class="calendar__day day">
-		        	3<br class="breakNumber"><div class="event"> <?php echo $informationDates[34]; ?> </div>
+		        	27<br class="breakNumber"><div class="event" id="event27"> <?php echo $informationDates[27]; ?> </div>
 		        </div>
 		        <div class="calendar__day day">
-		        	4<br class="breakNumber"><div class="event"> <?php echo $informationDates[35]; ?> </div>
+		        	28<br class="breakNumber"><div class="event" id="event28"> <?php echo $informationDates[28]; ?> </div>
+		        </div>
+		      </div>
+		      <div class="calendar__week">
+		        <div class="calendar__day day">
+		        	29<br class="breakNumber"><div class="event" id="event29"> <?php echo $informationDates[29]; ?> </div>
+		        </div>
+		        <div class="calendar__day day">
+		        	30<br class="breakNumber"><div class="event" id="event30"> <?php echo $informationDates[30]; ?> </div>
+		        </div>
+		        <div class="calendar__day day">
+		        	31<br class="breakNumber"><div class="event" id="event31"> <?php echo $informationDates[31]; ?> </div>
+		        </div>
+		        <div class="calendar__day day">
+		        	1<br class="breakNumber"><div class="event" id="event32"> <?php echo $informationDates[32]; ?> </div>
+		        </div>
+		        <div class="calendar__day day">
+		        	2<br class="breakNumber"><div class="event" id="event33"> <?php echo $informationDates[33]; ?> </div>
+		        </div>
+		        <div class="calendar__day day">
+		        	3<br class="breakNumber"><div class="event" id="event34"> <?php echo $informationDates[34]; ?> </div>
+		        </div>
+		        <div class="calendar__day day">
+		        	4<br class="breakNumber"><div class="event" id="event35"> <?php echo $informationDates[35]; ?> </div>
 		        </div>
 		      </div>
 		    </div>
@@ -334,18 +332,9 @@
 
 			}
 
-
-
 		</script>
 
 	</body>
 	<!-- Link to the javacript files -->
-	<script type="text/javascript">
-		var arr = "<?php json_encode($informationDates); ?>";
-
-		for(var i=0;i<12;i++){
-        alert(arr[i]);
-    }
-	</script>
 	<script src="scriptMainPage.js"></script>
 </html>

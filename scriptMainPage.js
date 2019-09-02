@@ -10,7 +10,7 @@ for (var i = 0; i < parts.length; i++) {
 var errorCode = ($_GET['err']);
 var d = new Date();
 var monthDate = d.getMonth();
-console.log(arr);
+
 //Setting the events on the page
 
 // document.getElementById("event1").innerHTML = "<?php echo $informationDates[1]; ?>";
@@ -46,7 +46,12 @@ $(document).ready(function() {
         data: {
             increaseMonth: leadingZeroMonth,
         },
-        success: function(msg) {
+        success: function(result) {
+          var array = JSON.parse(result);
+          for (var i = 0; i < array.length; i++) {
+            $('#event'+i).html(array[i]);
+
+          }
 
         }
     });

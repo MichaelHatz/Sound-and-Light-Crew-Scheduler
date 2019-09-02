@@ -16,7 +16,6 @@
 
   if (isset($_POST['increaseMonth'])) {
     $monthChange = $_POST['increaseMonth'];
-    echo $monthChange;
   } else {
     // $monthChange = date('M');
     $monthChange = "08";
@@ -97,5 +96,8 @@
     $MemberList .= "<br />";
     $MemberList .= "<p>";
   }
+
+  
+  print json_encode($informationDates);
 
 ?>

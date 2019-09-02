@@ -8,9 +8,17 @@ for (var i = 0; i < parts.length; i++) {
 }
 
 var errorCode = ($_GET['err']);
+var d = new Date();
+var monthDate = d.getMonth();
+console.log(arr);
+//Setting the events on the page
 
-
-
+// document.getElementById("event1").innerHTML = "<?php echo $informationDates[1]; ?>";
+// document.getElementById("event2").innerHTML = "<?php echo $informationDates[2]; ?>";
+// document.getElementById("event3").innerHTML = "<?php echo $informationDates[3]; ?>";
+// document.getElementById("event4").innerHTML = "<?php echo $informationDates[4]; ?>";
+// document.getElementById("event5").innerHTML = "<?php echo $informationDates[5]; ?>";
+// document.getElementById("event6").innerHTML = "<?php echo $informationDates[6]; ?>";
 
 $(document).ready(function() {
 
@@ -26,17 +34,22 @@ $(document).ready(function() {
     $("#EventMain").hide();
   }
 
+
   $('#MonthUp').click(function() {
+
+    monthDate += 1;
+    leadingZeroMonth = ('0' + monthDate).slice(-2);
+
     $.ajax({
         url: 'calendarProcess.php',
         type: 'POST',
         data: {
-            increaseMonth: 1
+            increaseMonth: leadingZeroMonth,
         },
         success: function(msg) {
-            
+
         }
-      });
+    });
   });
 
   $('#MonthDown').click(function() {

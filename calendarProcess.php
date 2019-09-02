@@ -1,5 +1,9 @@
 <?php
 
+  if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+  }
+
   include 'connect.php';
 
   //Declare variables
@@ -9,18 +13,14 @@
   $informationDates = array();
 
   //Catch the ajax variables if sent
-  echo "Hello";
+
   if (isset($_POST['increaseMonth'])) {
     $monthChange = $_POST['increaseMonth'];
     echo $monthChange;
   } else {
-    $monthChange = 0;
+    // $monthChange = date('M');
+    $monthChange = "08";
   }
-
-  echo $monthChange;
-
-
-
 
   //Collect the results from the database through a query
   $result = mysqli_query($con, "SELECT startDate,endTime,startTime,eventDescription,users from events") or die("Failed to query database".mysqli_error());
@@ -58,11 +58,11 @@
       if ($datas[$i]['users'] == $username) {
         //If the date is less then 10 make sure to check with a 0 infront, and for 10 or equal to search with no digit in the if statement
         if ($x < 10) {
-          if ($datas[$i]['startDate'] == "2019-07-0".$x) {
+          if ($datas[$i]['startDate'] == "2019-".$monthChange."-0".$x) {
             $informationDates[$x] = $datas[$i]['eventDescription']."<br>".$datas[$i]['startTime']." to ".$datas[$i]['endTime'];
           }
         } elseif ($x >= 10) {
-          if ($datas[$i]['startDate'] == "2019-07-".$x) {
+          if ($datas[$i]['startDate'] == "2019-".$monthChange."-".$x) {
             $informationDates[$x] = $datas[$i]['eventDescription']."<br>".$datas[$i]['startTime']." to ".$datas[$i]['endTime'];
           }
         }

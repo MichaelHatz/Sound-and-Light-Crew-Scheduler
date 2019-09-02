@@ -28,7 +28,7 @@
 
   $error_id = isset($_GET['pg']) ? (int)$_GET['pg'] : 0;
 
-
+	print_r($informationDates);
 ?>
 
 
@@ -36,8 +36,7 @@
 <html>
 	<!-- Link to jquery for the javascript files -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-	<!-- Link to the javacript files -->
-	<script src="scriptMainPage.js"></script>
+
 
 	<!-- Link to all the css files -->
 	<link rel="stylesheet" type="text/css" href="mainPageStyle.css">
@@ -95,27 +94,27 @@
 		        <div>sat</div>
 		        <div>sun</div>
 		      </div>
-		      <div class="calendar__week">
+		      <div class="calendar__week" id="calendarWeek">
 		        <div class="calendar__day day">
-		        	1<br class="breakNumber"><div class="event"> <?php echo $informationDates[1]; ?> </div>
+		        	1<br class="breakNumber"><div class="event" id="event1"> <?php echo $informationDates[1]; ?> </div>
 		        </div>
 		        <div class="calendar__day day">
-		        	2<br class="breakNumber"><div class="event"> <?php echo $informationDates[2]; ?> </div>
+		        	2<br class="breakNumber"><div class="event" id="event2"> <?php echo $informationDates[2]; ?> </div>
 		        </div>
 		        <div class="calendar__day day">
-		        	3<br class="breakNumber"><div class="event"> <?php echo $informationDates[3]; ?> </div>
+		        	3<br class="breakNumber"><div class="event" id="event3"> <?php echo $informationDates[3]; ?> </div>
 		        </div>
 		        <div class="calendar__day day">
-		        	4<br class="breakNumber"><div class="event"> <?php echo $informationDates[4]; ?> </div>
+		        	4<br class="breakNumber"><div class="event" id="event4"> <?php echo $informationDates[4]; ?> </div>
 		        </div>
 		        <div class="calendar__day day">
-		        	5<br class="breakNumber"><div class="event"> <?php echo $informationDates[5]; ?> </div>
+		        	5<br class="breakNumber"><div class="event" id="event5"> <?php echo $informationDates[5]; ?> </div>
 		        </div>
 		        <div class="calendar__day day">
-		        	6<br class="breakNumber"><div class="event"> <?php echo $informationDates[6]; ?> </div>
+		        	6<br class="breakNumber"><div class="event" id="event6"> <?php echo $informationDates[6]; ?> </div>
 		        </div>
 		        <div class="calendar__day day">
-		        	7<br class="breakNumber"><div class="event"> <?php echo $informationDates[7]; ?> </div>
+		        	7<br class="breakNumber"><div class="event" id="event7"> <?php echo $informationDates[7]; ?> </div>
 		        </div>
 		      </div>
 		      <div class="calendar__week">
@@ -340,4 +339,13 @@
 		</script>
 
 	</body>
+	<!-- Link to the javacript files -->
+	<script type="text/javascript">
+		var arr = "<?php json_encode($informationDates); ?>";
+
+		for(var i=0;i<12;i++){
+        alert(arr[i]);
+    }
+	</script>
+	<script src="scriptMainPage.js"></script>
 </html>

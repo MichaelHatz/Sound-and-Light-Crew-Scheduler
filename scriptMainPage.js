@@ -10,6 +10,9 @@ for (var i = 0; i < parts.length; i++) {
 var errorCode = ($_GET['err']);
 var d = new Date();
 var monthDate = d.getMonth();
+var yearDate = d.getFullYear();
+
+const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
 //Setting the events on the page
 
@@ -21,6 +24,9 @@ var monthDate = d.getMonth();
 // document.getElementById("event6").innerHTML = "<?php echo $informationDates[6]; ?>";
 
 $(document).ready(function() {
+
+  //Set the date for the year
+  $('#idCurrentMonth').html(monthNames[monthDate] + " " + yearDate)
 
   if (errorCode == 1) {
     $("#EventMain").show();
@@ -40,6 +46,14 @@ $(document).ready(function() {
     monthDate += 1;
     leadingZeroMonth = ('0' + monthDate).slice(-2);
 
+    if (monthDate > 11) {
+      monthDate = 0;
+      yearDate += 1
+      $('#idCurrentMonth').html(monthNames[monthDate] + " " + yearDate)
+    } else {
+      $('#idCurrentMonth').html(monthNames[monthDate] + " " + yearDate)
+    }
+
     $.ajax({
         url: 'calendarProcess.php',
         type: 'POST',
@@ -55,9 +69,40 @@ $(document).ready(function() {
 
         }
     });
+
+    console.log(leadingZeroMonth);
   });
 
   $('#MonthDown').click(function() {
+
+    monthDate -= 1;
+    leadingZeroMonth = ('0' + monthDate).slice(-2);
+
+    if (monthDate < 0) {
+      monthDate = 11;
+      yearDate -= 1;
+      $('#idCurrentMonth').html(monthNames[monthDate] + " " + yearDate)
+    } else {
+      $('#idCurrentMonth').html(monthNames[monthDate] + " " + yearDate)
+    }
+
+    $.ajax({
+        url: 'calendarProcess.php',
+        type: 'POST',
+        data: {
+            increaseMonth: leadingZeroMonth,
+        },
+        success: function(result) {
+          var array = JSON.parse(result);
+          for (var i = 0; i < array.length; i++) {
+            $('#event'+i).html(array[i]);
+
+          }
+
+        }
+    });
+
+    console.log(monthDate);
 
   });
 

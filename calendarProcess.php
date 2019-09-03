@@ -97,7 +97,8 @@
     $MemberList .= "<p>";
   }
 
-  
-  print json_encode($informationDates);
+  if (isset($_POST['increaseMonth'])) {
+    print json_encode($informationDates);
+  }
 
 ?>

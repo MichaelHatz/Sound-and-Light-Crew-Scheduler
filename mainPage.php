@@ -72,9 +72,9 @@
 		    <div class="toolbar">
 		      <div class="toggle">
 		      </div>
-					<div style="width: 40%;">
+					<div style="width: 60%;">
 						<button class="MonthDecrease" id="MonthDown">Previous Month</button>
-						<div class="current-month">July 2019</div>
+						<div class="current-month" id="idCurrentMonth">July 2019</div>
 						<button class="MonthIncrease" id="MonthUp" Onclick="" >Next Month</button>
 					</div>
 		      <div class="search-input">

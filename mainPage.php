@@ -26,7 +26,7 @@
 			3 => "Password entered is the same as original password"
   );
 
-  $error_id = isset($_GET['pg']) ? (int)$_GET['pg'] : 0;
+  $pageID = isset($_GET['pg']) ? (int)$_GET['pg'] : 0;
 ?>
 
 
@@ -52,7 +52,8 @@
 			<div class="smartphone-menu-trigger"></div>
 		  <header class="avatar">
 				<!-- Avatar picture and the member name -->
-				<img src="https://i.pravatar.cc/300" />
+				<!-- <img src="https://i.pravatar.cc/300" /> -->
+				<img src="https://chapters.theiia.org/central-mississippi/About/ChapterOfficers/person-placeholder.jpg" />
 		    <h2 style="text-decoration: underline;"><?php echo $_SESSION['user_id'] ?></h2>
 		  </header>
 			<ul>

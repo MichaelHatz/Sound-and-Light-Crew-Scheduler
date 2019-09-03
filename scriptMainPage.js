@@ -7,7 +7,7 @@ for (var i = 0; i < parts.length; i++) {
     $_GET[decodeURIComponent(temp[0])] = decodeURIComponent(temp[1]);
 }
 
-var errorCode = ($_GET['err']);
+var pageID = ($_GET['pg']);
 var d = new Date();
 var monthDate = d.getMonth();
 var yearDate = d.getFullYear();
@@ -28,12 +28,13 @@ $(document).ready(function() {
   //Set the date for the year
   $('#idCurrentMonth').html(monthNames[monthDate] + " " + yearDate)
 
-  if (errorCode == 1) {
+  console.log(pageID);
+  if (pageID == 1) {
     $("#EventMain").show();
     $("#CalendarMain").hide();
     $("#DocumentationMain").hide();
     $("#Settings").hide();
-  } else if (errorCode == 2 || errorCode == 3) {
+  } else if (pageID == 2 || pageID == 3) {
     $("#Settings").show();
     $("#CalendarMain").hide();
     $("#DocumentationMain").hide();

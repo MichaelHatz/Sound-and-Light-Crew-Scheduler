@@ -2,8 +2,6 @@
 
   include 'connect.php';
 
-  print_r($_POST);
-
   $result = mysqli_query($con, "SELECT * from users") or die("Failed to query database".mysqli_error());
   // $row = "";
 
@@ -20,40 +18,39 @@
   }
 
 
+
+
+
   if (isset($_POST['toggleClass'])) {
     $username = $_POST['toggleClass'];
     $usernameClass = ToggleUser($datas);
-    print_r($datas);
-    echo "<br>";
-    echo $usernameClass."<br>";
-    echo $datas[$usernameClass]['userClass']."<br>";
+    echo $usernameClass;
     if ($datas[$usernameClass - 1]['userClass'] == "Member") {
-      mysqli_query($con, "UPDATE users SET userClass='Admin' WHERE id=$usernameClass");
-      echo "Set user to be admin";
+      mysqli_query($con, "UPDATE users SET userClass='Admin' WHERE id = (select id from (select id from users order by id limit $usernameClass,1) as tbl)");
     } else if ($datas[$usernameClass - 1]['userClass'] == "Admin") {
-      mysqli_query($con, "UPDATE users SET userClass='Member' WHERE id=$usernameClass");
-      echo "Set use to member";
+      mysqli_query($con, "UPDATE users SET userClass='Member' WHERE id = (select id from (select id from users order by id limit $usernameClass,1) as tbl)");
     }
-    header("Location: mainPage.php");
+    header("Location: mainPage.php?pg=1");
   }
 
   if (isset($_POST['removeUser'])) {
+    echo "Remove User";
     $username = $_POST['removeUser'];
     $usernameRemovalID = RemoveUser($datas);
-    echo $usernameRemovalID;
-    mysqli_query($con, "DELETE FROM users WHERE id='".$usernameRemovalID."' AND Username = '".$username."'");
-
+    //mysqli_query($con, "DELETE FROM users WHERE id='".$usernameRemovalID."' AND Username = '".$username."'");
+    mysqli_query($con, "DELETE from users where id = (select id from (select id from users order by id limit $usernameRemovalID,1) as tbl)");
+    header("Location: mainPage.php?pg=1");
   }
 
   if (isset($_POST['acceptMember'])) {
     echo "accepting Member";
     $username = $_POST['acceptMember'];
     $usernameValidMember = AcceptUser($datas);
-    echo "<br>";
     echo $usernameValidMember."<br>";
 
-    mysqli_query($con, "UPDATE users SET validMember=1 Where id=$usernameValidMember");
-    header("Location: mainPage.php?pg=2");
+    // mysqli_query($con, "UPDATE users SET validMember=1 Where id=$usernameValidMember");
+    mysqli_query($con, "UPDATE users SET validMember=1 Where id = (select id from (select id from users order by id limit $usernameValidMember,1) as tbl)");
+    header("Location: mainPage.php?pg=1");
   }
 
 
@@ -62,24 +59,12 @@
     global $username;
     global $row;
 
-    echo $username . "\n";
-
-    echo "RemoveUser";
-
     $datasUserLength = count($array, 0);
-
-    echo $datasUserLength;
 
     for ($i=0; $i < $datasUserLength; $i++) {
 
       if ($array[$i]['Username'] == $username) {
-        echo "HELLO WORLD USERNAME";
-        echo $array[$i]['id'];
-        echo $i;
-        if ($array[$i]['id'] == $i + 1) {
-          echo "HELLO WORLD ID";
-          return $i + 1;
-        }
+        return $i;
       }
     }
 
@@ -98,10 +83,7 @@
 
       if ($array[$i]['Username'] == $username) {
         echo "HELLO WORLD USERNAME";
-        if ($array[$i]['id'] == $i + 1) {
-          echo "HELLO WORLD ID";
-          return $i + 1;
-        }
+        return $i;
       }
     }
 
@@ -122,10 +104,7 @@
 
       if ($array[$i]['Username'] == $username) {
         echo "HELLO WORLD USERNAME";
-        if ($array[$i]['id'] == $i + 1) {
-          echo "HELLO WORLD ID";
-          return $i + 1;
-        }
+        return $i;
       }
     }
   }

@@ -26,9 +26,8 @@ const monthNames = ["January", "February", "March", "April", "May", "June", "Jul
 $(document).ready(function() {
 
   //Set the date for the year
-  $('#idCurrentMonth').html(monthNames[monthDate] + " " + yearDate)
+  $('#idCurrentMonth').html(monthNames[monthDate] + " " + yearDate);
 
-  console.log(pageID);
   if (pageID == 1) {
     $("#EventMain").show();
     $("#CalendarMain").hide();
@@ -93,6 +92,7 @@ $(document).ready(function() {
         type: 'POST',
         data: {
             increaseMonth: leadingZeroMonth,
+            increaseYear: yearDate,
         },
         success: function(result) {
           var array = JSON.parse(result);

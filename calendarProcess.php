@@ -20,6 +20,7 @@
   } else {
     // $monthChange = date('M');
     $monthChange = "08";
+    $yearChange = "2019";
   }
 
   //Collect the results from the database through a query

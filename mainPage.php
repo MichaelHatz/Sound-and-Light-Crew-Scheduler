@@ -327,18 +327,18 @@
 
 		<!-- If user is not admin remove menu for events -->
 		<script type="text/javascript">
+			//Get the account level from the server side
 			var accountlevel = "<?php echo $userclass; ?>";
 
+			//Get the elements for the sidebar options
 			var el = document.getElementById("EventMain");
 			var elsidebar = document.getElementById("Events");
 
+			//If the account is a Member then remove the option in the sidebar
 			if (accountlevel == "Member") {
 				elsidebar.remove();
 				el.remove();
-			} else {
-
 			}
-
 		</script>
 
 	</body>

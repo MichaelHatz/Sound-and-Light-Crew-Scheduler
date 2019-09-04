@@ -136,12 +136,37 @@ html {
 }
 
 #parallax {
-	background-image: url('indexPhotos/Image4.jpg');
+  -webkit-animation: slide 30s ease-in-out infinite;
+  animation: slide 30s ease-in-out infinite;
 }
+
+/* #deposit {
+  position: fixed;
+  top: 100%;
+} */
 
 #parallax2 {
 	background-image: url('indexPhotos/Image5.jpg');
      height: 600px;
+}
+
+@keyframes slide {
+  0% {
+    background-image: url('indexPhotos/image3.jpg');
+  }
+  20% {
+    background-image: url('indexPhotos/image4.jpg');
+  }
+  40% {
+    background-image: url('indexPhotos/image5.jpg');
+  }
+  60% {
+    background-image: url('indexPhotos/Image1.jpg');
+  }
+  80% {
+    background-image: url('indexPhotos/Image2.jpg');
+  }
+
 }
 
 .aboutPageImages {

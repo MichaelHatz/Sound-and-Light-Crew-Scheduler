@@ -1,16 +1,9 @@
 <?php
-
+  //Connect the php document to the database
   include 'connect.php';
-
+  //Query the database
   $result = mysqli_query($con, "SELECT * from users") or die("Failed to query database".mysqli_error());
-  // $row = "";
-
-  // if (mysqli_num_rows($result) > 0) {
-	//     while ($row = mysqli_fetch_array($result)) {
-	//       $datas[] = $row;
-	//     }
-	// }
-
+  //Take query results and plug them into an array
   if (mysqli_num_rows($result) > 0) {
       while ($row = mysqli_fetch_array($result)) {
         $datas[] = $row;
@@ -20,7 +13,7 @@
 
 
 
-
+  //This is called when a toggle class button is pressed
   if (isset($_POST['toggleClass'])) {
     $username = $_POST['toggleClass'];
     $usernameClass = ToggleUser($datas);
@@ -33,6 +26,7 @@
     header("Location: mainPage.php?pg=1");
   }
 
+  //This is called when a remove button for users gets clicked
   if (isset($_POST['removeUser'])) {
     echo "Remove User";
     $username = $_POST['removeUser'];
@@ -42,6 +36,7 @@
     header("Location: mainPage.php?pg=1");
   }
 
+  //This is called when the accept member button gets pressed
   if (isset($_POST['acceptMember'])) {
     echo "accepting Member";
     $username = $_POST['acceptMember'];
@@ -54,7 +49,7 @@
   }
 
 
-
+  //This function can be called from inside the remove users post, this chcecks and returns the correct index for the user so it can be removed
   function RemoveUser(&$array) {
     global $username;
     global $row;
@@ -70,6 +65,7 @@
 
   }
 
+  //This function can be called from inside the toggle users post, this chcecks and returns the correct index for the user so it can be toggled
   function ToggleUser(&$array) {
     global $username;
 
@@ -91,6 +87,7 @@
 
   }
 
+  //This function can be called from inside the accept users post, this chcecks and returns the correct index for the user so it can accepted
   function AcceptUser(&$array) {
     global $username;
 

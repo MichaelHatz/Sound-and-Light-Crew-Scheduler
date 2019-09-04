@@ -53,19 +53,32 @@
 <script>
   //The array needs to have the amount of people regired to make the person the amount needed
   var Image_slide = new Array("indexPhotos/Image1.jpg", "indexPhotos/Image2.jpg", "indexPhotos/Image3.jpg", "indexPhotos/Image4.jpg", "indexPhotos/Image5.jpg"); // image container
-  var Img_Length = Image_slide.length; // container length - 1
-  var Img_current = 0;
-  var timeInterval = 5; //In seconds
   var errorCode = "<?php echo $error_id; ?>";
-
-
-
 
 
 
   //This checks for the document and if the login button has been pressed and opens the appropriate menu
   $(document).ready(function() {
-
+    // $('body').append('<div id="deposit"></div>');
+    //
+    // $(function() {
+    //
+    // var imghead = [
+    //     "indexPhotos/Image1.jpg?80172489074",
+    //     "indexPhotos/Image2.jpg?80172489074",
+    //     "indexPhotos/Image3.jpg?80172489074"
+    //     ];
+    //
+    // $.each(imghead, function() {
+    //
+    //     $('#deposit').append('<img src="' + this + '" alt="">');
+    // });
+    //
+    // $(window).on('load', function() {
+    //
+    //     $('#deposit').remove();
+    // });
+    // });
 
     //Based on the error code show the required menu, for example if their is a login error then show the login box on refresh
     if (errorCode == 1) {
@@ -158,23 +171,6 @@
       $(this).prop('disabled', true);
       break;
     });
-
-
-    //Set interval which changes the parralex background
-    setInterval(function() {
-      if (Img_current < Img_Length - 1) {
-        Img_current++
-      } else {
-        console.log("Reset the img current to 0")
-        Img_current = 0;
-      }
-
-      $("#parallax").fadeIn(500).css("background-image", "url(" + Image_slide[Img_current] + ")");
-
-      console.log("Set Interval working");
-
-    }, timeInterval * 1000);
-
   });
 </script>
 

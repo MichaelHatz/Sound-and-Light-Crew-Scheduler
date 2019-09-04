@@ -1,15 +1,15 @@
 <?php
-
+	//Connects the php document to the database
 	include 'connect.php';
+	//Connects the encryption.php document to this document
 	include 'Encryption.php';
-
+	//Gets the variables that have been posted, username, email and password.
 	$username = $_POST['username'];
 	$email = $_POST['email'];
 	$passwordNotHashed = $_POST['password'];
-
+	//Hashes the password that has been posted
 	$password = hash_sha1($passwordNotHashed);
-
-
+	//Strips the slashes from the username to prevent attacks
 	$username = stripcslashes($username);
 
 	//Validation for the name when making an account

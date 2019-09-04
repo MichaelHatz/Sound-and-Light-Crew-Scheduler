@@ -39,9 +39,8 @@
 <html>
 <!-- Link to the style sheet -->
 <link rel="stylesheet" type="text/css" href="style.css">
-<!-- Link to all the javascript scripts -->
-<script src="script.js"></script>
-<script src="Encryption.js"></script>
+<!-- Link to the icon for the tab -->
+<link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBWaAjD1MXhCjefWNdgLyBDj0QJ_w3JaNsaqwbbb_a6yMRTZbicg">
 <!-- Link to googles Jquery so that I can use it in javascript -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 
@@ -96,7 +95,7 @@
     }
 
     //When the login button is pressed show the login box
-    $("#LoginBtn").click(function() {
+    $("#LoginBtn").on('click touchstart', function() {
       console.log("Login button click function");
       $("#LoginBtn").fadeOut();
       $("#RegisterInput").fadeOut();
@@ -180,6 +179,7 @@
 </script>
 
 <body>
+  <!-- The parallax effect where the title box is -->
   <div class="parallax" id="parallax">
     <br>
     <div class="TitleBox">
@@ -252,7 +252,7 @@
 
   <div class="aboutPage">
     <h3>ABOUT</h3>
-    <p style="padding-left: 20%; padding-right: 20%; text-align: center">
+    <p style="padding-left: 20%; padding-right: 20%; text-align: center; font-size: 3vw;">
       Here at the Sound and Light Crew, we aim to provide Balwyn High School students an insight into the intricacies of the Audio-Visual field. Students who are part of the Sound and Light Crew will leave high school with experience working with stage lighting, sound design and DSLR cameras. The crew provides a positive working environment and is a great opportunity for Balwyn High students with an interest in the AV field to get some hands-on experience.
     </p>
     <div class="aboutPageImages">
@@ -268,11 +268,11 @@
   <!-- Copyright bar which features at the bottom of the web page -->
   <div class="copyrightBar" style="width: auto; overflow: hidden; display: block; height: 75px;">
     <!-- This div floats the text to the left side of the copyright bar -->
-    <div style="width: 50%; float: left;">
+    <div style="width: 50%; float: left;  font-size: 2vw;">
       <p class="TextWebsiteName">Sound and Light Crew Scheduler</p>
     </div>
     <!-- This div floats all the text to the right of the copyright bar -->
-    <div style="width: auto; overflow: hidden; float: right;">
+    <div style="width: auto; overflow: hidden; float: right; font-size: 2vw;">
       <p class="TextInformation">Michael Hatzipavlis 21.7.2019</p>
     </div>
   </div>

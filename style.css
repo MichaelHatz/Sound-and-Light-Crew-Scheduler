@@ -16,7 +16,7 @@ html {
      padding-bottom: 30px;
     /* text-shadow: -0.5px -0.5px 0 #E9C46A, 0.5px -0.5px 0 #E9C46A, -0.5px 0.5px 0 #E9C46A, 0.5px 0.5px 0 #E9C46A;
      */
-     
+
 }
  h2 {
      font-size: 30px;
@@ -64,7 +64,7 @@ html {
 }
  .TitleBox {
      background-color: #264653;
-     width: 1000px;
+     width: 75%;
      margin-left: auto;
      margin-right: auto;
      border: solid;
@@ -104,8 +104,9 @@ html {
      border-color: #E9C46A;
 }
  .aboutPage {
-     height: 1300px;
+     height: auto;
      font-size: 40px;
+     padding-bottom: 30px;
 }
 
 .copyrightBar {
@@ -147,7 +148,7 @@ html {
 	height: 300px;
 	width: 100%;
 	text-align: center;
-
+  display: inline-block;
 }
 
 #aboutImage1 {

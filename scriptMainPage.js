@@ -60,6 +60,7 @@ $(document).ready(function() {
         type: 'POST',
         data: {
             increaseMonth: leadingZeroMonth,
+            increaseYear: yearDate,
         },
         success: function(result) {
           var array = JSON.parse(result);
@@ -67,11 +68,11 @@ $(document).ready(function() {
             $('#event'+i).html(array[i]);
 
           }
-
         }
     });
 
     console.log(leadingZeroMonth);
+    console.log(yearDate);
   });
 
   $('#MonthDown').click(function() {

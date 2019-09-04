@@ -47,13 +47,13 @@
 		<title>Sound and Light Crew Scheduling</title>
 	</head>
 	<body>
-
 		<nav class="menu" tabindex="0">
 			<div class="smartphone-menu-trigger"></div>
 		  <header class="avatar">
 				<!-- Avatar picture and the member name -->
 				<!-- <img src="https://i.pravatar.cc/300" /> -->
 				<img src="https://chapters.theiia.org/central-mississippi/About/ChapterOfficers/person-placeholder.jpg" />
+				<!-- Name for the account -->
 		    <h2 style="text-decoration: underline;"><?php echo $_SESSION['user_id'] ?></h2>
 		  </header>
 			<ul>
@@ -68,21 +68,24 @@
 
 
 
-
+		<!-- This is the menu for the schedule page -->
 		<main id="CalendarMain">
 		    <div class="toolbar">
 		      <div class="toggle">
 		      </div>
+					<!-- Buttons and text to change months as well as title for the month -->
 					<div style="width: 60%;">
 						<button class="MonthDecrease" id="MonthDown">Previous Month</button>
 						<div class="current-month" id="idCurrentMonth">July 2019</div>
 						<button class="MonthIncrease" id="MonthUp" Onclick="" >Next Month</button>
 					</div>
+					<!-- Search input for the schedule -->
 		      <div class="search-input">
 		        <input type="text" value="What are you looking for?">
 		        <i class="fa fa-search"></i>
 		      </div>
 		    </div>
+				<!-- The calendar class located below the buttons at the top -->
 		    <div class="calendar">
 		      <div class="calendar__header">
 		        <div>mon</div>
@@ -93,6 +96,7 @@
 		        <div>sat</div>
 		        <div>sun</div>
 		      </div>
+					<!-- All the months that I manualy entered the event id's -->
 		      <div class="calendar__week" id="calendarWeek">
 		        <div class="calendar__day day">
 		        	1<br class="breakNumber"><div class="event" id="event1"> <?php echo $informationDates[1]; ?> </div>
@@ -211,6 +215,7 @@
 		    </div>
 		</main>
 
+		<!-- The code for the documentation page -->
 		<main id="DocumentationMain" style="display: none">
 			<div>
 				<div class="collapsedSubHeading" id="MissionStatementHeading">
@@ -261,10 +266,9 @@
 					</div>
 				</div>
 			</div>
-
-
 		</main>
 
+		<!-- The page for the events as well as members -->
 		<main id="EventMain" style="display: none">
 			<form id="EventForm" method="post" action="processEvent.php">
 				<h2>Events</h2>
@@ -298,6 +302,7 @@
 			</div>
 		</main>
 
+		<!-- The page for the settings -->
 		<main id="Settings" style="display: none">
 			<h2>Settings</h2>
 			<br>
@@ -320,6 +325,7 @@
 			</form>
 		</main>
 
+		<!-- If user is not admin remove menu for events -->
 		<script type="text/javascript">
 			var accountlevel = "<?php echo $userclass; ?>";
 

@@ -16,6 +16,7 @@
 
   if (isset($_POST['increaseMonth'])) {
     $monthChange = $_POST['increaseMonth'];
+    $yearChange = $_POST['increaseYear'];
   } else {
     // $monthChange = date('M');
     $monthChange = "08";
@@ -57,11 +58,11 @@
       if ($datas[$i]['users'] == $username) {
         //If the date is less then 10 make sure to check with a 0 infront, and for 10 or equal to search with no digit in the if statement
         if ($x < 10) {
-          if ($datas[$i]['startDate'] == "2019-".$monthChange."-0".$x) {
+          if ($datas[$i]['startDate'] == "$yearChange"."-".$monthChange."-0".$x) {
             $informationDates[$x] = $datas[$i]['eventDescription']."<br>".$datas[$i]['startTime']." to ".$datas[$i]['endTime'];
           }
         } elseif ($x >= 10) {
-          if ($datas[$i]['startDate'] == "2019-".$monthChange."-".$x) {
+          if ($datas[$i]['startDate'] == "$yearChange"."-".$monthChange."-".$x) {
             $informationDates[$x] = $datas[$i]['eventDescription']."<br>".$datas[$i]['startTime']." to ".$datas[$i]['endTime'];
           }
         }
@@ -97,6 +98,7 @@
     $MemberList .= "<p>";
   }
 
+  //This is to print the increasedMonth, what this allows it
   if (isset($_POST['increaseMonth'])) {
     print json_encode($informationDates);
   }

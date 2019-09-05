@@ -6,14 +6,34 @@
   height: auto;
   border-radius: 15px;
   background-color: #264653;
+  font-family: Verdana
+}
+
+#usernameLogin {
+  padding: 5px 5px;
+  border-radius: 5px;
+  width: 240px;
+}
+
+#passwordLogin {
+  padding: 5px 5px;
+  border-radius: 5px;
+  width: 240px;
+}
+
+#txt_input {
+  padding: 5px 5px;
+  border-radius: 5px;
+  width: 240px;
 }
 
 h2 {
   padding-top: 15px;
+  margin: 0px;
   text-align: center;
   color: white;
   font-size: 30px;
-
+  font-family: Verdana;
 }
 
 .Login {
@@ -32,11 +52,12 @@ h2 {
   color: red;
   text-align: center;
   font-size: 20px;
-  margin-bottom: 60px;
+  margin-bottom: 30px;
 }
 
 html {
   height: 100%;
+  -webkit-font-smoothing: antialiased
 }
 
 body {
@@ -68,6 +89,7 @@ a.btn {
     -webkit-border-radius: 10px;
     border-bottom-width: 3px;
     text-decoration: none;
+    font-family: Verdana;
 }
 
 a.btn:hover {

@@ -35,11 +35,11 @@
 				header("Location: LoginPage.php?err=2");
 			}
 		} else if ($row['Username'] != $username) { //Equal if the username isn't true
-			header("Location: Login.php?err=3");
+			header("Location: LoginPage.php?err=3");
 		} else if ($row['Password'] != $password) { //Equal if the password isn't true
-			header("Location: Login.php?err=4");
+			header("Location: LoginPage.php?err=4");
 		} else if ($row['validMember'] == "0") {
-			header("Location: Login.php?err=5");
+			header("Location: LoginPage.php?err=5");
 		}
 
 	}

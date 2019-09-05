@@ -162,7 +162,7 @@ html {
 }
 
 .aboutPageImages {
-	height: 300px;
+	height: auto;
 	width: 100%;
 	text-align: center;
   display: inline-block;

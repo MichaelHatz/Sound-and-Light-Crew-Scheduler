@@ -35,104 +35,6 @@
     <!-- Title for the website in the bar at the top -->
     <title>Sound and Light Scheduling</title>
 </head>
-
-<!-- Javascript script box, this can probably in the future be moved over to a external file -->
-<script>
-  //The array needs to have the amount of people regired to make the person the amount needed
-  var Image_slide = new Array("indexPhotos/Image1.jpg", "indexPhotos/Image2.jpg", "indexPhotos/Image3.jpg", "indexPhotos/Image4.jpg", "indexPhotos/Image5.jpg"); // image container
-  var errorCode = "<?php echo $error_id; ?>";
-
-
-
-  //This checks for the document and if the login button has been pressed and opens the appropriate menu
-  $(document).ready(function() {
-    // $('body').append('<div id="deposit"></div>');
-    //
-    // $(function() {
-    //
-    // var imghead = [
-    //     "indexPhotos/Image1.jpg?80172489074",
-    //     "indexPhotos/Image2.jpg?80172489074",
-    //     "indexPhotos/Image3.jpg?80172489074"
-    //     ];
-    //
-    // $.each(imghead, function() {
-    //
-    //     $('#deposit').append('<img src="' + this + '" alt="">');
-    // });
-    //
-    // $(window).on('load', function() {
-    //
-    //     $('#deposit').remove();
-    // });
-    // });
-
-    //Based on the error code show the required menu, for example if their is a login error then show the login box on refresh
-    if (errorCode == 1) {
-
-    } else if (errorCode == 2) {
-      $("#LoginBtn").hide();
-      $("#RegisterInput").hide();
-      $("#paragrahStyle").show();
-      $("#loginBox").show();
-
-    } else if (errorCode == 3) {
-      $("#LoginBtn").hide();
-      $("#RegisterInput").hide();
-      $("#paragrahStyle").hide();
-      $("#loginBox").show();
-    } else if (errorCode == 4) {
-      $("#LoginBtn").hide();
-      $("#RegisterInput").hide();
-      $("#paragrahStyle").hide();
-      $("#loginBox").show();
-    } else if (errorCode == 5) {
-      $("#LoginBtn").hide();
-      $("#RegisterInput").hide();
-      $("#paragrahStyle").hide();
-      $("#loginBox").show();
-
-    }
-
-    //When the return button is clicked the appropriate menus are opened and closed
-    $("#returnButtonLogBox").click(function() {
-      console.log("Return button click function");
-      $("#paragrahStyle")
-      $("#loginBox").fadeOut();
-      $("#paragrahStyle")
-        .delay(500)
-        .queue(function(next) {
-          $("#paragrahStyle").css("padding-top", "15px");
-          next();
-        });
-      $("#LoginBtn").delay(800).fadeIn();
-      $("#RegisterInput").delay(800).fadeIn();
-    });
-
-    //When the return button for registration box is clicked the appropriate menus are opened and closed
-    $("#returnButtonRegBox").click(function() {
-      console.log("Return button click function");
-      $("#paragrahStyle")
-      $('#registerBox').fadeOut();
-      $("#paragrahStyle")
-        .delay(500)
-        .queue(function(next) {
-          $("#paragrahStyle").css("padding-top", "15px");
-          next();
-        });
-      $("#LoginBtn").delay(800).fadeIn();
-      $("#RegisterInput").delay(800).fadeIn();
-    });
-
-    //When the submit button on the register button is pressed, disable it so that it can't be clicked multiple times
-    $("#submitRegisterButton").click(function() {
-      console.log("Disable button");
-      $(this).prop('disabled', true);
-      break;
-    });
-  });
-</script>
-
 <body>
   <!-- The parallax effect where the title box is -->
   <div class="parallax" id="parallax">
@@ -156,7 +58,7 @@
 
   <div class="aboutPage">
     <h3>ABOUT</h3>
-    <p style="padding-left: 20%; padding-right: 20%; text-align: center; font-size: 3vw;">
+    <p style="padding-left: 20%; padding-right: 20%; text-align: center; font-size: 2.2vw; text-align: justify;">
       Here at the Sound and Light Crew, we aim to provide Balwyn High School students an insight into the intricacies of the Audio-Visual field. Students who are part of the Sound and Light Crew will leave high school with experience working with stage lighting, sound design and DSLR cameras. The crew provides a positive working environment and is a great opportunity for Balwyn High students with an interest in the AV field to get some hands-on experience.
     </p>
     <div class="aboutPageImages">
@@ -176,7 +78,7 @@
       <p class="TextWebsiteName">Sound and Light Crew Scheduler</p>
     </div>
     <!-- This div floats all the text to the right of the copyright bar -->
-    <div style="width: auto; overflow: hidden; float: right; font-size: 2vw;">
+    <div style="width: auto; overflow: hidden; float: right; font-size: 2.2vw;">
       <p class="TextInformation">Michael Hatzipavlis 21.7.2019</p>
     </div>
   </div>

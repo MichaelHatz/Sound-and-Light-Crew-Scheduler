@@ -286,7 +286,8 @@
 				<h4>Event Description:</h4>
 				<input type="text" name="eventDescription"></input>
 				<br>
-				<h4>People attending the event:</h4>
+				<h4 style="margin-bottom:0px;">People attending the event:</h4>
+				<p style="font-size: 10px; margin-top:0px;">You can add many people with comma's between peoples names (Michael,Jeff,Admin)</p>
 				<input type="text" name="users"></input>
 				<p id="errorBoxEvent" class="errorBox"></p>
 				<br>

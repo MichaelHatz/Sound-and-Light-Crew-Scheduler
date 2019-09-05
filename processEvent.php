@@ -9,6 +9,10 @@
 	$eventDescription = $_POST['eventDescription'];
 	$users = $_POST['users'];
 
+	//Validation variables
+	$existenceCheck = false;
+	$usersCheck = false;
+	$usersArray = explode(',', $users);
 
 	//Calling the database and moving the data into arrays so that I can access it later on in the script
 	$result = mysqli_query($con, "SELECT * from events") or die("Failed to query database".mysqli_error());
@@ -33,27 +37,59 @@
 	//
 
 	//Getting the lengths of the arrays
-	$datasUserLength = count($dataUsers, 0);
+	$datasUserLength = count($datasUsers, 0);
 	$datasLength = count($datas, 0);
-
+	$usersArrayLength = count($usersArray, 0);
 	//Checking if the text box that features users features in the database
-	for ($i=0; $i < $datasUserLength; $i++) {
-		if ($users = $datasUsers[$i]['Username']) {
-			header("Location: index.php?err=4");
+	for ($d=0; $d < $usersArrayLength; $d++) {
+		for ($i=0; $i < $datasUserLength; $i++) {
+			if ($usersArray[$d] == $datasUsers[$i]['Username']) {
+				$usersAmount += 1;
+			}
 		}
 	}
 
+	echo $usersArrayLength;
+	echo $usersAmount;
 
-	//Create a new row in the database and insert the startDate, startTime, endTime, eventDescription, users
-	$sql = "INSERT INTO events (startDate,startTime,endTime,eventDescription,users)
-	VALUES ('$startDate','$startTime','$endTime','$eventDescription','$users')";
+	if ($usersAmount == $usersArrayLength) {
 
-	//If the
-	if (mysqli_query($con, $sql)) {
-       echo "New record created successfully";
+	} else {
+		// header("Location: mainPage.php?pg=1");
+		$usersCheck = true;
+	}
 
-    } else {
-       echo "Error: " . $sql . "" . mysqli_error($con);
-    }
 
+	//Existence check
+	if (isset($startDate) && isset($startTime) && isset($endTime) && isset($eventDescription) && isset($users)) {
+
+	} else {
+		$existenceCheck = true;
+	}
+
+	echo $existenceCheck;
+	echo $usersCheck;
+
+	if ($existenceCheck == true && $usersCheck == true) {
+		header("Location: mainPage.php?pg=1");
+	} else if ($existenceCheck == true) {
+		header("Location: mainPage.php?pg=1");
+	} else if ($usersCheck == true) {
+		header("Location: mainPage.php?pg=1");
+	} else {
+		for ($i=0; $i < $usersArrayLength; $i++) {
+			//Create a new row in the database and insert the startDate, startTime, endTime, eventDescription, users
+			$userFromArray = $usersArray[$i];
+			$sql = "INSERT INTO events (startDate,startTime,endTime,eventDescription,users)
+			VALUES ('$startDate','$startTime','$endTime','$eventDescription','$userFromArray')";
+
+			//If the
+			if (mysqli_query($con, $sql)) {
+					 echo "New record created successfully";
+
+			} else {
+				 echo "Error: " . $sql . "" . mysqli_error($con);
+			}
+		}
+	}
 ?>

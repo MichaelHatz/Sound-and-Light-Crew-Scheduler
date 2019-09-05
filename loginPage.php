@@ -18,7 +18,7 @@
 <!DOCTYPE html>
 <html>
 <!-- Link to the style sheet -->
-<link rel="stylesheet" type="text/css" href="loginPagestyle.css">
+<link rel="stylesheet" type="text/css" href="registerPageStyle.css">
 <!-- Link to the icon for the tab -->
 <link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBWaAjD1MXhCjefWNdgLyBDj0QJ_w3JaNsaqwbbb_a6yMRTZbicg">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -26,7 +26,18 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 
 <script>
-
+  // $(document).ready(function() {
+  //   // hide/show password
+  // 	$(".icon-wrapper").click(function() {
+  // 		$(".toggle-password").toggleClass(".ion-eye ion-more");
+  // 		var input = $($(".toggle-password").attr("toggle"));
+  // 		if (input.attr("type") == "password") {
+  // 			input.attr("type", "text");
+  // 		} else {
+  // 			input.attr("type", "password");
+  // 		}
+  // 	});
+  // });
 </script>
 
 <head>
@@ -52,7 +63,7 @@
           <a class="btn" onclick="document.getElementById('loginForm').submit();">Submit</a>
         </p>
       </div>
-      <div class="hot-container">
+      <div class="hot-container" style="padding-bottom: 15px;">
         <p>
           <a class="btn" id="returnButtonLogBox" onclick="location.href = 'index.php'">Return</a>
         </p>

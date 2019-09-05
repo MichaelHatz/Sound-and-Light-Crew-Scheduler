@@ -19,20 +19,6 @@
     redirect();
   }
 
-  //This is the errors that the will appear based on the number
-  $errors = array (
-      0 => "",
-      1 => "Either a incorrect username and password",
-      2 => "Either a incorrect username and password",
-      3 => "Either a incorrect username and password",
-      4 => "Either a incorrect username and password",
-      5 => "Your account hasn't been confirmed, please wait or contact your adminastrator",
-      6 => "SQL ERROR"
-  );
-
-  //Error id is abtained by using the GET feature in PHP, which is in the URL under 'err' tag
-  $error_id = isset($_GET['err']) ? (int)$_GET['err'] : 0;
-
 ?>
 
 <!DOCTYPE html>
@@ -41,6 +27,7 @@
 <link rel="stylesheet" type="text/css" href="style.css">
 <!-- Link to the icon for the tab -->
 <link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBWaAjD1MXhCjefWNdgLyBDj0QJ_w3JaNsaqwbbb_a6yMRTZbicg">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <!-- Link to googles Jquery so that I can use it in javascript -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 
@@ -107,34 +94,6 @@
 
     }
 
-    //When the login button is pressed show the login box
-    $("#LoginBtn").on('click touchstart', function() {
-      console.log("Login button click function");
-      $("#LoginBtn").fadeOut();
-      $("#RegisterInput").fadeOut();
-      $("#paragrahStyle")
-        .delay(500)
-        .queue(function(next) {
-          $("#paragrahStyle").css("padding-top", "15px");
-          next();
-        });
-      $("#loginBox").delay(800).fadeIn();
-    });
-
-    //When the register button is pressed the appropriate menus are opened and closed
-    $("#RegisterInput").click(function() {
-      console.log("Register button click function")
-      $("#LoginBtn").fadeOut();
-      $("#RegisterInput").fadeOut();
-      $("#paragrahStyle")
-        .delay(500)
-        .queue(function(next) {
-          $("#paragrahStyle").css("padding-top", "15px");
-          next();
-        });
-      $("#registerBox").delay(800).fadeIn();
-    });
-
     //When the return button is clicked the appropriate menus are opened and closed
     $("#returnButtonLogBox").click(function() {
       console.log("Return button click function");
@@ -178,71 +137,20 @@
   <!-- The parallax effect where the title box is -->
   <div class="parallax" id="parallax">
     <br>
-    <div class="TitleBox">
-      <h1>Sound and Light Crew Scheduler</h1>
-    </div>
 
     <!-- <img src="SoundandLightCrewLogo.png" style="width: 500px; height: 500px;" > -->
 
-    <div class="hot-container">
+    <div class="hot-container-Title">
+      <div class="TitleBox">
+        <h1>Sound and Light Crew Scheduler</h1>
+      </div>
       <p id="paragrahStyle">
-        <a id="LoginBtn" class="btn">Login</a>
-        <div hidden class="LoginBox" id="loginBox">
-          <form id="loginForm" method="post" action="processLogin.php">
-            <div class="Login">
-              <h2 style="margin-top: 15px">Username:</h2>
-              <input type="text" name="username" id="usernameLogin" value="" autocomplete="off"></input>
-            </div>
-
-            <div class="Password">
-              <h2 style="margin-top: 15px">Password:</h2>
-              <input type="password" name="password" id="passwordLogin" value="" autocomplete="off"></input>
-            </div>
-
-            <p id="errorBox" class="errorBox"><?php echo $errors[$error_id]; ?></p>
-
-            <div class="hot-container">
-              <p>
-                <a class="btn" onclick="document.getElementById('loginForm').submit();">Submit</a>
-              </p>
-            </div>
-            <div class="hot-container">
-              <p>
-                <a class="btn" id="returnButtonLogBox">Return</a>
-              </p>
-            </div>
-          </form>
-        </div>
-        <div hidden class="LoginBox" id="registerBox">
-          <form id="registerForm" method="post" action="processRegister.php">
-            <div class="Login">
-              <h2 style="margin-top: 15px">Username:</h2>
-              <input type="text" name="username" id="username" value="" autocomplete="off"></input>
-            </div>
-            <div class="Email">
-              <h2 style="margin-top: 15px">Email:</h2>
-              <input type="text" name="email" id="username" value="" autocomplete="off"></input>
-            </div>
-            <div class="Password">
-              <h2 style="margin-top: 15px">Password:</h2>
-              <input type="password" name="password" id="passwordRegister" value="" autocomplete="off"></input>
-            </div>
-            <div class="hot-container">
-              <p>
-                <a class="btn" id="submitRegisterButton" onclick="document.getElementById('registerForm').submit();">Submit</a>
-              </p>
-            </div>
-            <div class="hot-container">
-              <p>
-                <a class="btn" id="returnButtonRegBox">Return</a>
-              </p>
-            </div>
-          </form>
-        </div>
+        <a id="LoginBtn" class="btn" href="loginPage.php">Login</a>
+        <a class="btn" id="RegisterInput" href='registerPage.php'>Register</a>
       </p>
-      <p>
-        <a class="btn" id="RegisterInput">Register</a>
-      </p>
+      <div class="arrow bounce">
+        <a class="fa fa-arrow-down fa-2x"></a>
+      </div>
     </div>
   </div>
 

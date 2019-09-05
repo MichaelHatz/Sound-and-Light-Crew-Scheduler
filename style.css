@@ -8,9 +8,12 @@ html {
 }
  h1 {
      text-align: center;
-     font-size: 45px;
+     font-size: 70px;
      font-family: Verdana;
-     color:#E9C46A;
+     font-weight: 600;
+     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+     /* color:#E9C46A; */
+     color: white;
      margin: 0px;
      padding-top: 30px;
      padding-bottom: 30px;
@@ -44,9 +47,16 @@ html {
      text-decoration: none;
      margin: 0 10px;
 }
+.hot-container-Title {
+    min-height: 60px;
+    width: 100%;
+    margin-top: 240px;
+    text-align: center;
+}
  .hot-container {
      min-height: 60px;
      width: 100%;
+     margin-top: 10px;
      text-align: center;
 }
  .myCanvas {
@@ -63,12 +73,12 @@ html {
      border: 0px;
 }
  .TitleBox {
-     background-color: #264653;
+     /* background-color: #264653; */
      width: 75%;
      margin-left: auto;
      margin-right: auto;
-     border: solid;
-     border-color: #E9C46A;
+     /* border: solid; */
+     /* border-color: #E9C46A; */
 }
  .BelowBreak {
      background-color: white;
@@ -121,7 +131,7 @@ html {
     /* Full height */
      height: 100%;
     /*Correction for the google window which is a bit smaller then 1080px*/
-     height: 1007px;
+     height: 900px;
      image-rendering: -moz-crisp-edges;
      image-rendering: -o-crisp-edges;
      image-rendering: -webkit-optimize-contrast;
@@ -138,35 +148,17 @@ html {
 #parallax {
   -webkit-animation: slide 30s ease-in-out infinite;
   animation: slide 30s ease-in-out infinite;
-}
+  background: #F1F2B5;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to bottom, #135058, #F1F2B5);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to bottom, #135058, #F1F2B5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
-/* #deposit {
-  position: fixed;
-  top: 100%;
-} */
+
+
+}
 
 #parallax2 {
 	background-image: url('indexPhotos/Image5.jpg');
-     height: 600px;
-}
-
-@keyframes slide {
-  0% {
-    background-image: url('indexPhotos/image3.jpg');
-  }
-  20% {
-    background-image: url('indexPhotos/image4.jpg');
-  }
-  40% {
-    background-image: url('indexPhotos/image5.jpg');
-  }
-  60% {
-    background-image: url('indexPhotos/Image1.jpg');
-  }
-  80% {
-    background-image: url('indexPhotos/Image2.jpg');
-  }
-
+     height: 800px;
 }
 
 .aboutPageImages {
@@ -186,17 +178,16 @@ html {
 
  a.btn {
      display: inline-block;
-     color: #666;
-     background-color: #eee;
+     color: white;
+     background-color: #8999aa;
      text-transform: uppercase;
      letter-spacing: 2px;
      font-size: 18px;
      padding: 15px 50px;
      width: 200px;
-     border-radius: 5px;
-     -moz-border-radius: 5px;
-     -webkit-border-radius: 5px;
-     border: 1px solid rgba(0,0,0,0.3);
+     border-radius: 10px;
+     -moz-border-radius: 10px;
+     -webkit-border-radius: 10px;
      border-bottom-width: 3px;
 }
  a.btn:hover {
@@ -219,5 +210,30 @@ html {
 }
 
 #LoginBtn {
-  margin-top: 185px;
+  margin-top: 20px;
+}
+
+body { background: @bg;}
+a { color: white; text-decoration: none; }
+
+.arrow {
+  text-align: center;
+  margin-top: 220px;
+}
+.bounce {
+  -moz-animation: bounce 2s infinite;
+  -webkit-animation: bounce 2s infinite;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-30px);
+  }
+  60% {
+    transform: translateY(-15px);
+  }
 }

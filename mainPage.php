@@ -39,6 +39,7 @@
 	<!-- Link to all the css files -->
 	<link rel="stylesheet" type="text/css" href="mainPageStyle.css">
 	<link rel="stylesheet" type="text/css" href="toolbar.css">
+	<link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBWaAjD1MXhCjefWNdgLyBDj0QJ_w3JaNsaqwbbb_a6yMRTZbicg">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
@@ -60,7 +61,7 @@
 				<!-- Side menu with the buttons that take you to the documentation, schedule, events and more -->
 		    <a id="Schedule"><li tabindex="0" class="icon-dashboard"><span>Schedule</span></li></a>
 		    <a id="Documentation"><li tabindex="0" class="icon-customers"><span>Documentation</span></li></a>
-		    <a id="Events"><li tabindex="0" class="icon-users"><span>Events</span></li></a>
+		    <a id="Events"><li tabindex="0" class="icon-users"><span>Events/Members</span></li></a>
 		    <a id="SettingsSideBar"><li tabindex="0" class="icon-settings"><span>Settings</span></li></a>
 				<a href="logout.php"><li tabindex="0" class="icon-users"><span>Logout</span></li></a>
 		  </ul>

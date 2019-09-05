@@ -1,0 +1,80 @@
+.LoginBox {
+  background-color: white;
+  margin-left: auto;
+  margin-right: auto;
+  width: 400px;
+  height: auto;
+  border-radius: 15px;
+  background-color: #264653;
+}
+
+h2 {
+  padding-top: 15px;
+  text-align: center;
+  color: white;
+  font-size: 30px;
+
+}
+
+.Login {
+  text-align: center;
+}
+
+.Password {
+  text-align: center;
+}
+
+.Email {
+  text-align: center;
+}
+
+#errorBox {
+  color: red;
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 60px;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  padding-top: 10%;
+  background: #F1F2B5;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to bottom, #135058, #F1F2B5);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to bottom, #135058, #F1F2B5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.hot-container {
+    min-height: 60px;
+    width: 100%;
+    margin-top: 10px;
+    text-align: center;
+}
+
+a.btn {
+    text-align: center;
+    display: inline-block;
+    color: white;
+    background-color: #8999aa;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 18px;
+    padding: 15px 50px;
+    width: 200px;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-bottom-width: 3px;
+    text-decoration: none;
+}
+
+a.btn:hover {
+    background-color: #e3e3e3;
+    border-color: rgba(0,0,0,0.5);
+}
+a.btn:active {
+    background-color: #CCC;
+    border-color: rgba(0,0,0,0.9);
+}

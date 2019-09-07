@@ -49,9 +49,7 @@
 		}
 	}
 
-	echo $usersArrayLength;
-	echo $usersAmount;
-
+	//CHeck that the users specified are real and the amount entered match databases members list
 	if ($usersAmount == $usersArrayLength) {
 
 	} else {
@@ -60,16 +58,15 @@
 	}
 
 
-	//Existence check
+	//Existence check to make sure all the reqried boxes have been filled out
 	if (isset($startDate) && isset($startTime) && isset($endTime) && isset($eventDescription) && isset($users)) {
 
 	} else {
 		$existenceCheck = true;
 	}
 
-	echo $existenceCheck;
-	echo $usersCheck;
-
+	//If the validation is not correct in the input boxes then return to the mainpage
+	//INFORMATION: ADD CODE TO RETURN ERROR MESSAGE
 	if ($existenceCheck == true && $usersCheck == true) {
 		header("Location: mainPage.php?pg=1");
 	} else if ($existenceCheck == true) {

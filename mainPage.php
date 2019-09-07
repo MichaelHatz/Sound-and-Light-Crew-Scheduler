@@ -284,6 +284,7 @@
 				<input type="time" name="endTime"></input>
 				<br>
 				<h4>Event Description:</h4>
+				<p style="font-size: 10px; margin-top:0px;">Add here information going into more detail about the event (Going fishing down at the Yarra)</p>
 				<input type="text" name="eventDescription"></input>
 				<br>
 				<h4 style="margin-bottom:0px;">People attending the event:</h4>

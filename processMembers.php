@@ -27,7 +27,6 @@
 
   //This is called when a remove button for users gets clicked
   if (isset($_POST['removeUser'])) {
-    echo "Remove User";
     $username = $_POST['removeUser'];
     $usernameRemovalID = RemoveUser($datas);
     //mysqli_query($con, "DELETE FROM users WHERE id='".$usernameRemovalID."' AND Username = '".$username."'");
@@ -37,10 +36,8 @@
 
   //This is called when the accept member button gets pressed
   if (isset($_POST['acceptMember'])) {
-    echo "accepting Member";
     $username = $_POST['acceptMember'];
     $usernameValidMember = AcceptUser($datas);
-    echo $usernameValidMember."<br>";
 
     // mysqli_query($con, "UPDATE users SET validMember=1 Where id=$usernameValidMember");
     mysqli_query($con, "UPDATE users SET validMember=1 Where id = (select id from (select id from users order by id limit $usernameValidMember,1) as tbl)");
@@ -67,9 +64,7 @@
   //This function can be called from inside the toggle users post, this chcecks and returns the correct index for the user so it can be toggled
   function ToggleUser(&$array) {
     global $username;
-
-    echo "Toggle User Class";
-
+    //The amount of money are the 
     $datasUserLength = count($array, 0);
 
     for ($i=0; $i < $datasUserLength; $i++) {
@@ -84,16 +79,11 @@
   function AcceptUser(&$array) {
     global $username;
 
-    echo "Accept User";
-
     $datasUserLength = count($array, 0);
-
-    echo $datasUserLength;
 
     for ($i=0; $i < $datasUserLength; $i++) {
 
       if ($array[$i]['Username'] == $username) {
-        echo "HELLO WORLD USERNAME";
         return $i;
       }
     }

@@ -11,17 +11,16 @@
   }
 
 
-
+  print_r($datas);
 
   //This is called when a toggle class button is pressed
   if (isset($_POST['toggleClass'])) {
     $username = $_POST['toggleClass'];
     $usernameClass = ToggleUser($datas);
-    echo $usernameClass;
-    if ($datas[$usernameClass - 1]['userClass'] == "Member") {
-      mysqli_query($con, "UPDATE users SET userClass='Admin' WHERE id = (select id from (select id from users order by id limit $usernameClass,1) as tbl)");
-    } else if ($datas[$usernameClass - 1]['userClass'] == "Admin") {
-      mysqli_query($con, "UPDATE users SET userClass='Member' WHERE id = (select id from (select id from users order by id limit $usernameClass,1) as tbl)");
+    if ($datas[$usernameClass]['userClass'] == 'Member') {
+      mysqli_query($con, "UPDATE users SET userClass='Admin' where id = (select id from (select id from users order by id limit $usernameClass,1) as tbl)");
+    } else if ($datas[$usernameClass]['userClass'] == 'Admin') {
+      mysqli_query($con, "UPDATE users SET userClass='Member' where id = (select id from (select id from users order by id limit $usernameClass,1) as tbl)");
     }
     header("Location: mainPage.php?pg=1");
   }
@@ -73,25 +72,19 @@
 
     $datasUserLength = count($array, 0);
 
-    echo $datasUserLength;
-
     for ($i=0; $i < $datasUserLength; $i++) {
 
       if ($array[$i]['Username'] == $username) {
-        echo "HELLO WORLD USERNAME";
         return $i;
       }
     }
-
-
-
   }
 
   //This function can be called from inside the accept users post, this chcecks and returns the correct index for the user so it can accepted
   function AcceptUser(&$array) {
     global $username;
 
-    echo "Toggle User Class";
+    echo "Accept User";
 
     $datasUserLength = count($array, 0);
 

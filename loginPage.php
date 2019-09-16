@@ -25,39 +25,26 @@
 <!-- Link to googles Jquery so that I can use it in javascript -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 
-<script>
-  // $(document).ready(function() {
-  //   // hide/show password
-  // 	$(".icon-wrapper").click(function() {
-  // 		$(".toggle-password").toggleClass(".ion-eye ion-more");
-  // 		var input = $($(".toggle-password").attr("toggle"));
-  // 		if (input.attr("type") == "password") {
-  // 			input.attr("type", "text");
-  // 		} else {
-  // 			input.attr("type", "password");
-  // 		}
-  // 	});
-  // });
-</script>
-
 <head>
   <title>Sound and Light Crew Scheduler</title>
 </head>
 <body>
+  <!-- This is the div box that holds the login box and information regarding the login -->
   <div class="LoginBox" id="loginBox">
     <form id="loginForm" method="post" action="processLogin.php">
+      <!-- This div class holds the login input and text -->
       <div class="Login">
         <h2 style="margin-top: 15px">Username:</h2>
         <input type="text" name="username" id="usernameLogin" value="" autocomplete="off"></input>
       </div>
-
+      <!-- This is the div box that holds the password box and information regarding the login -->
       <div class="Password">
         <h2 style="margin-top: 15px">Password:</h2>
         <input type="password" name="password" id="passwordLogin" value="" autocomplete="off"></input>
       </div>
-
+      <!-- This holds the error text if there is an error -->
       <p id="errorBox" class="errorBox"><?php echo $errors[$error_id]; ?></p>
-
+      <!-- This box holds the buttons for the submit and the return button -->
       <div class="hot-container">
         <p>
           <a class="btn" onclick="document.getElementById('loginForm').submit();">Submit</a>

@@ -23,6 +23,7 @@
     $yearChange = "2019";
   }
 
+  
   //Collect the results from the database through a query
   $result = mysqli_query($con, "SELECT startDate,endTime,startTime,eventDescription,users from events") or die("Failed to query database".mysqli_error());
   $resultUsers = mysqli_query($con, "SELECT Username,userClass,validMember from users") or die("Failed to query database".mysqli_error());

@@ -43,7 +43,7 @@
     mysqli_query($con, "UPDATE users SET validMember=1 Where id = (select id from (select id from users order by id limit $usernameValidMember,1) as tbl)");
     header("Location: mainPage.php?pg=1");
   }
-
+  
 
   //This function can be called from inside the remove users post, this chcecks and returns the correct index for the user so it can be removed
   function RemoveUser(&$array) {
@@ -64,7 +64,7 @@
   //This function can be called from inside the toggle users post, this chcecks and returns the correct index for the user so it can be toggled
   function ToggleUser(&$array) {
     global $username;
-    //The amount of money are the 
+    //The amount of
     $datasUserLength = count($array, 0);
 
     for ($i=0; $i < $datasUserLength; $i++) {

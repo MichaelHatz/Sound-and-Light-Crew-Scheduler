@@ -25,7 +25,7 @@
 			2 => "Passwords entered are not the same",
 			3 => "Password entered is the same as original password"
   );
-
+	//Getting the page id from the url
   $pageID = isset($_GET['pg']) ? (int)$_GET['pg'] : 0;
 ?>
 
@@ -219,9 +219,11 @@
 		<!-- The code for the documentation page -->
 		<main id="DocumentationMain" style="display: none">
 			<div>
+				<!-- The title for the mission statement -->
 				<div class="collapsedSubHeading" id="MissionStatementHeading">
 					Mission Statement
 				</div>
+				<!-- Information regarding the mission statement -->
 				<div class="collapsedBodyParagraph" id="MissionStatementBody" style="display: none">
 					<div style="padding: 10px; text-align: justify;">
 						Hello. Here at the Sound and Light Crew, we aim to provide Balwyn High School students an insight into the intricacies of the Audio-Visual field. Students who are part of the Sound and Light Crew will leave high school with experience working with stage lighting, sound design, and DSLR cameras. The crew provides a positive working enviroment, and is a great opportunity for Balwyn High students with an interest in the AV field to get some hands-on experience.
@@ -232,9 +234,11 @@
 			</div>
 			<br>
 			<div>
+				<!-- The title for using the website documentation -->
 				<div class="collapsedSubHeading" id="WebsiteHeading">
 					Using the website
 				</div>
+				<!-- Body paragraph -->
 				<div class="collapsedBodyParagraph" id="WebsiteBody" style="display: none">
 					<div style="padding: 10px; text-align: justify;">
 						Firstly I would like to thank you for using the Sound and Light Crew Scheduling website, learning how to use the program is quite simple. Firstly on the left sidebar, you will find the menus for the website ranging from the schedule, to documentation and settings. You can access these menus by clicking on them and then you can access the appropriate menus from that. On the right hand side you will find further information relating to the selected field.

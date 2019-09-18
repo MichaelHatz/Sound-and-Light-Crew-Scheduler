@@ -61,7 +61,6 @@
 		VALUES ('$username','$email','$password','Member','0')";
 
 		if (mysqli_query($con, $sql)) {
-	       echo "New record created successfully";
 				 header("Location: index.php");
     } else {
        header("Location: index.php?err=6");

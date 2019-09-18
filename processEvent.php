@@ -82,11 +82,11 @@
 
 			//If the
 			if (mysqli_query($con, $sql)) {
-					 echo "New record created successfully";
 
 			} else {
 				 echo "Error: " . $sql . "" . mysqli_error($con);
 			}
+			header("Location: mainPage.php?pg=1");
 		}
 	}
 ?>

@@ -10,17 +10,30 @@
       }
   }
 
-
-  print_r($datas);
+  //This old version didn't work on the server for whatever reason, below is the fix
+  // if (isset($_POST['toggleClass'])) {
+  //   $username = $_POST['toggleClass'];
+  //   $usernameClass = ToggleUser($datas);
+  //   echo $usernameClass;
+  //   if ($datas[$usernameClass]['userClass'] == 'Member') {
+  //     mysqli_query($con, "UPDATE users SET userClass='Admin' where id = (select id from (select id from users order by id limit $usernameClass,1) as tbl)");
+  //     echo "Call Admin";
+  //   } else if ($datas[$usernameClass]['userClass'] == 'Admin') {
+  //     mysqli_query($con, "UPDATE users SET userClass='Member' where id = (select id from (select id from users order by id limit $usernameClass,1) as tbl)");
+  //     echo "Call member";
+  //   }
+  //   header("Location: mainPage.php?pg=1");
+  // }
 
   //This is called when a toggle class button is pressed
   if (isset($_POST['toggleClass'])) {
     $username = $_POST['toggleClass'];
     $usernameClass = ToggleUser($datas);
+    $idValue = $datas[$usernameClass]['id'];
     if ($datas[$usernameClass]['userClass'] == 'Member') {
-      mysqli_query($con, "UPDATE users SET userClass='Admin' where id = (select id from (select id from users order by id limit $usernameClass,1) as tbl)");
+      mysqli_query($con, "UPDATE users SET userClass='Admin' where id = $idValue");
     } else if ($datas[$usernameClass]['userClass'] == 'Admin') {
-      mysqli_query($con, "UPDATE users SET userClass='Member' where id = (select id from (select id from users order by id limit $usernameClass,1) as tbl)");
+      mysqli_query($con, "UPDATE users SET userClass='Member' where id = $idValue");
     }
     header("Location: mainPage.php?pg=1");
   }
@@ -29,8 +42,9 @@
   if (isset($_POST['removeUser'])) {
     $username = $_POST['removeUser'];
     $usernameRemovalID = RemoveUser($datas);
+    $idValue = $datas[$usernameRemovalID]['id'];
     //mysqli_query($con, "DELETE FROM users WHERE id='".$usernameRemovalID."' AND Username = '".$username."'");
-    mysqli_query($con, "DELETE from users where id = (select id from (select id from users order by id limit $usernameRemovalID,1) as tbl)");
+    mysqli_query($con, "DELETE from users where id = $idValue");
     header("Location: mainPage.php?pg=1");
   }
 
@@ -38,12 +52,13 @@
   if (isset($_POST['acceptMember'])) {
     $username = $_POST['acceptMember'];
     $usernameValidMember = AcceptUser($datas);
+    $idValue = $datas[$usernameValidMember]['id'];
 
     // mysqli_query($con, "UPDATE users SET validMember=1 Where id=$usernameValidMember");
-    mysqli_query($con, "UPDATE users SET validMember=1 Where id = (select id from (select id from users order by id limit $usernameValidMember,1) as tbl)");
+    mysqli_query($con, "UPDATE users SET validMember=1 where id = $idValue");
     header("Location: mainPage.php?pg=1");
   }
-  
+
 
   //This function can be called from inside the remove users post, this chcecks and returns the correct index for the user so it can be removed
   function RemoveUser(&$array) {

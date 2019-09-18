@@ -1,15 +1,12 @@
 <?php
 
+//Get the input message and process it so that it is the correct length, etc
 function preProcess($message){
-    /*
-    Pre-processing:
-    append the bit '1' to the message i.e. by adding 0x80 if characters are 8 bits.
-    append 0 ≤ k < 512 bits '0', thus the resulting message length (in bits)
-       is congruent to 448 (mod 512)
-    append ml, in a 64-bit big-endian integer. So now the message length is a multiple of 512 bits.
-    */
+        //Gets the length of the string and then multiplies that by 8
         $originalSize = strlen($message) * 8;
+        //Adds a special character at the end of the message
         $message .= chr(128);
+        //Adds blanks onto the end of the string until the string length is 128 characters
         while (((strlen($message) + 8) % 64) !== 0) {
             $message .= chr(0);
         }
@@ -18,9 +15,11 @@ function preProcess($message){
         }
         return $message;
 }
+// This function rotates the a position in an array required for sha1 hashing
 function rotl($x, $n) {
   return ($x << $n) | ($x >> (32 - $n));
 }
+// This step function is all the function required in the algorithm at the end of the hashing
 function SHAfunction($step, $b, $c, $d)
 {
     switch ($step) {

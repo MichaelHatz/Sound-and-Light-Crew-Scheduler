@@ -18,9 +18,11 @@ function preProcess($message){
         }
         return $message;
 }
+//Rotate an array, required for the algorithm at the end
 function rotl($x, $n) {
   return ($x << $n) | ($x >> (32 - $n));
 }
+//All the functions required for the algorithm, adding, subtracting, etc.
 function SHAfunction($step, $b, $c, $d)
 {
     switch ($step) {
@@ -33,15 +35,17 @@ function SHAfunction($step, $b, $c, $d)
             return ($b & $c) ^ ($b & $d) ^ ($c & $d);
     }
 }
+//Called with input of string that needs to be hashed
 function hash_sha1($input) {
+    //Declaring the bytes
     $h0 = 0x67452301;
     $h1 = 0xEFCDAB89;
     $h2 = 0x98BADCFE;
     $h3 = 0x10325476;
     $h4 = 0xC3D2E1F0;
     $K = [0x5a827999, 0x6ed9eba1, 0x8f1bbcdc, 0xca62c1d6];
+    //Call the pre process function, process the message in successive 512-bit chunks
     $message = preProcess($input);
-    // Process the message in successive 512-bit chunks:
     // break message into 512-bit chunks
     $chunks = str_split($message, 64);
     foreach ($chunks as $chunk) {
@@ -55,13 +59,13 @@ function hash_sha1($input) {
             }
             $words[$i] = bindec($word);
         }
-        // Extend the sixteen 32-bit words into eighty 32-bit words:
+        // Extend the sixteen 32-bit words into eighty 32-bit words
         for ($i = 16; $i < 80; $i++) {
         // for i from 16 to 79
         //     w[i] = (w[i-3] xor w[i-8] xor w[i-14] xor w[i-16]) leftrotate 1
             $words[$i] = rotl($words[$i-3] ^ $words[$i-8] ^ $words[$i-14] ^ $words[$i-16], 1) & 0xffffffff;
         }
-        // Initialize hash value for this chunk:
+        // Initialize hash value for this chunk
         $a = $h0; $b = $h1; $c = $h2; $d = $h3; $e = $h4;
         // Main loop:[39]
         foreach ($words as $i => $word) {
@@ -75,31 +79,13 @@ function hash_sha1($input) {
             $a = $temp;
         }
 
-        echo $a;
-        echo $b;
-        echo $c;
-        echo $d;
-        echo $e;
-
-
-        // Add this chunk's hash to result so far:
+        // Add this chunk's hash to result so far
         $h0 = ($h0 + $a) & 0xffffffff;
         $h1 = ($h1 + $b) & 0xffffffff;
         $h2 = ($h2 + $c) & 0xffffffff;
         $h3 = ($h3 + $d) & 0xffffffff;
         $h4 = ($h4 + $e) & 0xffffffff;
-
-        // echo $h0;
-        // echo $h1;
-        // echo $h2;
-        // echo $h3;
-        // echo $h4;
     }
     return sprintf('%08x%08x%08x%08x%08x', $h0, $h1, $h2, $h3, $h4);;
 }
-// echo sha1('password'), PHP_EOL;
-// echo hash_sha1('password'), PHP_EOL;
-// echo hash_sha1(file_get_contents(__FILE__)), PHP_EOL;
-// echo sha1_file(__FILE__), PHP_EOL;
-
 ?>
